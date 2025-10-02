@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package client;
+
+service ClientService {
+    rpc GetClient (ClientRequest) returns (ClientResponse);
+    rpc ListClients (google.protobuf.Empty) returns (stream ClientResponse);
+    rpc CreateClient (CreateClientRequest) returns (ClientResponse);
+    rpc UpdateClient (UpdateClientRequest) returns (ClientResponse);
+    rpc DeleteClient (ClientRequest) returns (google.protobuf.Empty);
+}
+
+message ClientRequest {
+    string client_id = 1;
+}
+
+message ClientResponse {
+    string client_name = 1;
+    string client_email = 2;
+}
+
+message CreateClientRequest {
+    string client_name = 1;
+    string client_email = 2;
+}
+
+message UpdateClientRequest {
+    string client_id = 1;
+    string client_name = 2;
+    string client_email = 3;
+}
+
+import "google/protobuf/empty.proto";
