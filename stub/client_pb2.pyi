@@ -12,12 +12,14 @@ class ClientRequest(_message.Message):
     def __init__(self, id: _Optional[int] = ...) -> None: ...
 
 class ClientResponse(_message.Message):
-    __slots__ = ("name", "email")
+    __slots__ = ("id", "name", "email")
+    ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     EMAIL_FIELD_NUMBER: _ClassVar[int]
+    id: int
     name: str
     email: str
-    def __init__(self, name: _Optional[str] = ..., email: _Optional[str] = ...) -> None: ...
+    def __init__(self, id: _Optional[int] = ..., name: _Optional[str] = ..., email: _Optional[str] = ...) -> None: ...
 
 class CreateClientRequest(_message.Message):
     __slots__ = ("name", "email")
