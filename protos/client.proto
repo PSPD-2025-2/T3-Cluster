@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package client;
 
+import "google/protobuf/empty.proto";
+
 service ClientService {
     rpc GetClient (ClientRequest) returns (ClientResponse);
     rpc ListClients (google.protobuf.Empty) returns (stream ClientResponse);
@@ -29,5 +31,3 @@ message UpdateClientRequest {
     string client_name = 2;
     string client_email = 3;
 }
-
-import "google/protobuf/empty.proto";
