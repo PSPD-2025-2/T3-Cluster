@@ -6,33 +6,33 @@ from typing import ClassVar as _ClassVar, Optional as _Optional
 DESCRIPTOR: _descriptor.FileDescriptor
 
 class ClientRequest(_message.Message):
-    __slots__ = ("client_id",)
-    CLIENT_ID_FIELD_NUMBER: _ClassVar[int]
-    client_id: str
-    def __init__(self, client_id: _Optional[str] = ...) -> None: ...
+    __slots__ = ("id",)
+    ID_FIELD_NUMBER: _ClassVar[int]
+    id: int
+    def __init__(self, id: _Optional[int] = ...) -> None: ...
 
 class ClientResponse(_message.Message):
-    __slots__ = ("client_name", "client_email")
-    CLIENT_NAME_FIELD_NUMBER: _ClassVar[int]
-    CLIENT_EMAIL_FIELD_NUMBER: _ClassVar[int]
-    client_name: str
-    client_email: str
-    def __init__(self, client_name: _Optional[str] = ..., client_email: _Optional[str] = ...) -> None: ...
+    __slots__ = ("name", "email")
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    EMAIL_FIELD_NUMBER: _ClassVar[int]
+    name: str
+    email: str
+    def __init__(self, name: _Optional[str] = ..., email: _Optional[str] = ...) -> None: ...
 
 class CreateClientRequest(_message.Message):
-    __slots__ = ("client_name", "client_email")
-    CLIENT_NAME_FIELD_NUMBER: _ClassVar[int]
-    CLIENT_EMAIL_FIELD_NUMBER: _ClassVar[int]
-    client_name: str
-    client_email: str
-    def __init__(self, client_name: _Optional[str] = ..., client_email: _Optional[str] = ...) -> None: ...
+    __slots__ = ("name", "email")
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    EMAIL_FIELD_NUMBER: _ClassVar[int]
+    name: str
+    email: str
+    def __init__(self, name: _Optional[str] = ..., email: _Optional[str] = ...) -> None: ...
 
 class UpdateClientRequest(_message.Message):
-    __slots__ = ("client_id", "client_name", "client_email")
-    CLIENT_ID_FIELD_NUMBER: _ClassVar[int]
-    CLIENT_NAME_FIELD_NUMBER: _ClassVar[int]
-    CLIENT_EMAIL_FIELD_NUMBER: _ClassVar[int]
-    client_id: str
-    client_name: str
-    client_email: str
-    def __init__(self, client_id: _Optional[str] = ..., client_name: _Optional[str] = ..., client_email: _Optional[str] = ...) -> None: ...
+    __slots__ = ("id", "name", "email")
+    ID_FIELD_NUMBER: _ClassVar[int]
+    NAME_FIELD_NUMBER: _ClassVar[int]
+    EMAIL_FIELD_NUMBER: _ClassVar[int]
+    id: int
+    name: str
+    email: str
+    def __init__(self, id: _Optional[int] = ..., name: _Optional[str] = ..., email: _Optional[str] = ...) -> None: ...

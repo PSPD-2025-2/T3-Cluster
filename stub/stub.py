@@ -16,9 +16,9 @@ def run():
           match method:
               case 1: # CreateClient
                   try:
-                    client_name = input("Enter client name: ")
-                    client_email = input("Enter client email: ")
-                    new_client = CreateClientRequest(client_name=client_name, client_email=client_email)
+                    name = input("Enter client name: ")
+                    email = input("Enter client email: ")
+                    new_client = CreateClientRequest(name=name, email=email)
                     response = stub.CreateClient(new_client)
                     print("CreateClient Response:", response)
                   
@@ -26,21 +26,21 @@ def run():
                     print(f"gRPC Error: {e.code()} - {e.details()}")
               
               case 2: # GetClient
-                  client_id = input("Enter client ID: ")
-                  response = stub.GetClient(ClientRequest(client_id=client_id))
+                  id = int(input("Enter client ID: "))
+                  response = stub.GetClient(ClientRequest(id=id))
                   print("GetClient Response:", response)
               
               case 3: # UpdateClient
-                  client_id = input("Enter client ID: ")
-                  client_name = input("Enter new client name: ")
-                  client_email = input("Enter new client email: ")
-                  updated_client = UpdateClientRequest(client_id=client_id, client_name=client_name, client_email=client_email)
+                  id = int(input("Enter client ID: "))
+                  name = input("Enter new client name: ")
+                  email = input("Enter new client email: ")
+                  updated_client = UpdateClientRequest(id=id, name=name, email=email)
                   response = stub.UpdateClient(updated_client)
                   print("UpdateClient Response:", response)
               
               case 4: # DeleteClient
-                  client_id = input("Enter client ID: ")
-                  response = stub.DeleteClient(ClientRequest(client_id=client_id))
+                  id = int(input("Enter client ID: "))
+                  response = stub.DeleteClient(ClientRequest(id=id))
                   print("DeleteClient Response: Client deleted successfully.")
               
               case 5: # ListClients

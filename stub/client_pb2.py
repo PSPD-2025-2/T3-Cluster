@@ -25,7 +25,7 @@ _sym_db = _symbol_database.Default()
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0c\x63lient.proto\x12\x06\x63lient\x1a\x1bgoogle/protobuf/empty.proto\"\"\n\rClientRequest\x12\x11\n\tclient_id\x18\x01 \x01(\t\";\n\x0e\x43lientResponse\x12\x13\n\x0b\x63lient_name\x18\x01 \x01(\t\x12\x14\n\x0c\x63lient_email\x18\x02 \x01(\t\"@\n\x13\x43reateClientRequest\x12\x13\n\x0b\x63lient_name\x18\x01 \x01(\t\x12\x14\n\x0c\x63lient_email\x18\x02 \x01(\t\"S\n\x13UpdateClientRequest\x12\x11\n\tclient_id\x18\x01 \x01(\t\x12\x13\n\x0b\x63lient_name\x18\x02 \x01(\t\x12\x14\n\x0c\x63lient_email\x18\x03 \x01(\t2\xd5\x02\n\rClientService\x12:\n\tGetClient\x12\x15.client.ClientRequest\x1a\x16.client.ClientResponse\x12?\n\x0bListClients\x12\x16.google.protobuf.Empty\x1a\x16.client.ClientResponse0\x01\x12\x43\n\x0c\x43reateClient\x12\x1b.client.CreateClientRequest\x1a\x16.client.ClientResponse\x12\x43\n\x0cUpdateClient\x12\x1b.client.UpdateClientRequest\x1a\x16.client.ClientResponse\x12=\n\x0c\x44\x65leteClient\x12\x15.client.ClientRequest\x1a\x16.google.protobuf.Emptyb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x0c\x63lient.proto\x12\x06\x63lient\x1a\x1bgoogle/protobuf/empty.proto\"\x1b\n\rClientRequest\x12\n\n\x02id\x18\x01 \x01(\x05\"-\n\x0e\x43lientResponse\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05\x65mail\x18\x02 \x01(\t\"2\n\x13\x43reateClientRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05\x65mail\x18\x02 \x01(\t\">\n\x13UpdateClientRequest\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t2\xd5\x02\n\rClientService\x12:\n\tGetClient\x12\x15.client.ClientRequest\x1a\x16.client.ClientResponse\x12?\n\x0bListClients\x12\x16.google.protobuf.Empty\x1a\x16.client.ClientResponse0\x01\x12\x43\n\x0c\x43reateClient\x12\x1b.client.CreateClientRequest\x1a\x16.client.ClientResponse\x12\x43\n\x0cUpdateClient\x12\x1b.client.UpdateClientRequest\x1a\x16.client.ClientResponse\x12=\n\x0c\x44\x65leteClient\x12\x15.client.ClientRequest\x1a\x16.google.protobuf.Emptyb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -33,13 +33,13 @@ _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'client_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
   _globals['_CLIENTREQUEST']._serialized_start=53
-  _globals['_CLIENTREQUEST']._serialized_end=87
-  _globals['_CLIENTRESPONSE']._serialized_start=89
-  _globals['_CLIENTRESPONSE']._serialized_end=148
-  _globals['_CREATECLIENTREQUEST']._serialized_start=150
-  _globals['_CREATECLIENTREQUEST']._serialized_end=214
-  _globals['_UPDATECLIENTREQUEST']._serialized_start=216
-  _globals['_UPDATECLIENTREQUEST']._serialized_end=299
-  _globals['_CLIENTSERVICE']._serialized_start=302
-  _globals['_CLIENTSERVICE']._serialized_end=643
+  _globals['_CLIENTREQUEST']._serialized_end=80
+  _globals['_CLIENTRESPONSE']._serialized_start=82
+  _globals['_CLIENTRESPONSE']._serialized_end=127
+  _globals['_CREATECLIENTREQUEST']._serialized_start=129
+  _globals['_CREATECLIENTREQUEST']._serialized_end=179
+  _globals['_UPDATECLIENTREQUEST']._serialized_start=181
+  _globals['_UPDATECLIENTREQUEST']._serialized_end=243
+  _globals['_CLIENTSERVICE']._serialized_start=246
+  _globals['_CLIENTSERVICE']._serialized_end=587
 # @@protoc_insertion_point(module_scope)
