@@ -25,38 +25,104 @@ const client = clientProto.client;
 
 const clientService = {
   ListClients: async (call) => {
-    const clients = await prisma.client.findMany();
-    console.log(clients);
-    for (const client of clients) {
-      call.write({client_name: client.name, client_email: client.email});
+    try {
+      const clients = await prisma.client.findMany();
+      console.log(clients);
+      clients.forEach(client => call.write(client));
+      call.end();
+    } catch (error) {
+      console.error("Error fetching clients:", error);
+      call.emit('error', {
+        code: grpc.status.INTERNAL,
+        details: "Internal server error",
+      });
     }
-    call.end();
   },
 
   GetClient: async (call, callback) => {
-    const client = await prisma.client.findUnique({
-      where: { id: parseInt(call.request.client_id) },
-    });
-    callback(null, {client_name: client.name, client_email: client.email} || { client_id: 0, client_name: "Not Found", client_email: "" });
+    try {
+      const client = await prisma.client.findUnique({
+        where: { id: call.request.id },
+      });
+      if (client) {
+        console.log(client);
+        callback(null, client);
+      } else {
+        console.log("Client not found");
+        callback({
+          code: grpc.status.NOT_FOUND,
+          details: "Client not found",
+        });
+      }
+    } catch (error) {
+      console.error("Error fetching client:", error);
+      callback({
+        code: grpc.status.INTERNAL,
+        details: "Internal server error",
+      });
+    }
   },
+  
   CreateClient: async (call, callback) => {
-    const client = await prisma.client.create({
-      data: { name: call.request.client_name, email: call.request.client_email },
-    });
-    callback(null, client);
+    try {
+      const client = await prisma.client.create({
+        data: { name: call.request.name, email: call.request.email },
+      });
+      console.log(client);
+      callback(null, client);
+    } catch (error) {
+      console.error("Error creating client:", error);
+      callback({
+        code: grpc.status.INTERNAL,
+        details: "Internal server error",
+      });
+    }
   },
+  
   UpdateClient: async (call, callback) => {
-    const client = await prisma.client.update({
-      where: { id: parseInt(call.request.client_id) },
-      data: { name: call.request.client_name, email: call.request.client_email },
-    });
-    callback(null, client);
+    try {
+      const client = await prisma.client.update({
+        where: { id: call.request.id },
+        data: { name: call.request.name, email: call.request.email },
+      });
+      console.log(client);
+      callback(null, client);
+    } catch (error) {
+      console.error("Error updating client:", error);
+      if (error.code === 'P2025') { // Prisma error code for "Record to update not found."
+        callback({
+          code: grpc.status.NOT_FOUND,
+          details: "Client not found",
+        });
+      } else {
+        callback({
+          code: grpc.status.INTERNAL,
+          details: "Internal server error",
+        });
+      }
+    } 
   },
+  
   DeleteClient: async (call, callback) => {
-    await prisma.client.delete({
-      where: { id: parseInt(call.request.client_id) },
-    });
-    callback(null, {});
+    try {
+      await prisma.client.delete({
+        where: { id: call.request.id },
+      });
+      callback(null, {});
+    } catch (error) {
+      console.error("Error deleting client:", error);
+      if (error.code === 'P2025') { // Prisma error code for "Record to delete not found."
+        callback({
+          code: grpc.status.NOT_FOUND,
+          details: "Client not found",
+        });
+      } else {
+        callback({
+          code: grpc.status.INTERNAL,
+          details: "Internal server error",
+        });
+      }
+    }
   },
 };
 
