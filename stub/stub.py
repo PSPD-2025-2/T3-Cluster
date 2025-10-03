@@ -1,6 +1,6 @@
 import grpc
-from common.client_pb2 import ClientRequest, CreateClientRequest, UpdateClientRequest, ClientResponse
-from common.client_pb2_grpc import ClientServiceStub
+from client_pb2 import ClientRequest, CreateClientRequest, UpdateClientRequest
+from client_pb2_grpc import ClientServiceStub
 import google.protobuf.empty_pb2 as empty
 
 def run():
