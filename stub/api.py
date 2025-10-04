@@ -7,10 +7,12 @@ import grpc
 from client_pb2 import ClientRequest, CreateClientRequest, UpdateClientRequest
 from client_pb2_grpc import ClientServiceStub
 import google.protobuf.empty_pb2 as empty
+import os
 
 GRPC_CHANNEL = None
 CLIENT_STUB = None
-GRPC_TARGET = 'localhost:50051'
+HOST = os.getenv('GRPC_HOST', 'localhost')
+PORT = os.getenv('GRPC_PORT', '8000')
 
 class ClientModel(BaseModel):
     id: int
@@ -28,9 +30,9 @@ async def lifespan(app: FastAPI):
     and closes it when the app shuts down (shutdown).
     """
     global GRPC_CHANNEL, CLIENT_STUB
-    print(f"Connecting to gRPC server at {GRPC_TARGET}...")
+    print(f"Connecting to gRPC server at {HOST}:{PORT}...")
 
-    GRPC_CHANNEL = grpc.insecure_channel(GRPC_TARGET)
+    GRPC_CHANNEL = grpc.insecure_channel(f"{HOST}:{PORT}")
     CLIENT_STUB = ClientServiceStub(GRPC_CHANNEL)
     print("gRPC connection established.")
 
