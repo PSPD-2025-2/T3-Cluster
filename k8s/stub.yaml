@@ -19,10 +19,14 @@ spec:
         ports:
         - containerPort: 8000
         env:
-        - name: GRPC_HOST
+        - name: CLIENT_GRPC_HOST
           value: "clientserver"
-        - name: GRPC_PORT
+        - name: CLIENT_GRPC_PORT
           value: "50051"
+        - name: ACCOUNT_GRPC_HOST
+          value: "accountserver"
+        - name: ACCOUNT_GRPC_PORT
+          value: "50052"
         readinessProbe:
           httpGet:
             path: /docs
