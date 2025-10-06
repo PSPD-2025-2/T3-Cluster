@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package account;
+
+import "google/protobuf/empty.proto";
+
+service AccountService {
+    rpc GetAccount (AccountRequest) returns (AccountResponse);
+    rpc ListAccounts (google.protobuf.Empty) returns (stream AccountResponse);
+    rpc CreateAccount (CreateAccountRequest) returns (AccountResponse);
+    rpc UpdateAccount (UpdateAccountRequest) returns (AccountResponse);
+    rpc DeleteAccount (AccountRequest) returns (google.protobuf.Empty);
+    rpc SendMoney (SendMoneyRequest) returns (TransactionResponse);
+    rpc ListTransactions (AccountRequest) returns (stream TransactionResponse);
+}
+
+message AccountRequest {
+    int32 id = 1;
+}
+
+message AccountResponse {
+    int32 id = 1;
+    int32 client = 2;
+    string key = 3;
+    double balance = 4;
+}
+
+message CreateAccountRequest {
+    int32 client = 1;
+    string key = 2;
+    double balance = 3;
+}
+
+message UpdateAccountRequest {
+    int32 id = 1;
+    int32 client = 2;
+    string key = 3;
+    double balance = 4;
+}
+
+message SendMoneyRequest {
+    int32 from_account = 1;
+    int32 to_account = 2;
+    double amount = 3;
+}
+
+message TransactionResponse {
+    int32 id = 1;
+    int32 from_account = 2;
+    int32 to_account = 3;
+    double amount = 4;
+    string timestamp = 5;
+}
