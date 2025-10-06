@@ -114,7 +114,7 @@ const clientService = {
       await prisma.client.delete({
         where: { id: call.request.getId() },
       });
-      callback(null, {});
+      callback(null, new messages.Empty());
     } catch (error) {
       console.error("Error deleting client:", error);
       if (error.code === 'P2025') { // Prisma error code for "Record to delete not found."
