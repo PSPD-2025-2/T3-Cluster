@@ -68,10 +68,16 @@ const clientService = {
       callback(null, response);
     } catch (error) {
       console.error("Error creating client:", error);
-      callback({
-        code: grpc.status.INTERNAL,
-        details: "Internal server error",
-      });
+      if (error.code === 'P2002') { // Prisma error code for unique constraint violation
+        callback({
+          code: grpc.status.ALREADY_EXISTS,
+          details: "Client with this email already exists",
+        });
+      } else {
+        callback({
+          code: grpc.status.INTERNAL,
+          details: "Internal server error",
+        });}
     }
   },
   
