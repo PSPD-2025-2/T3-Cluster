@@ -11,10 +11,12 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+  schemas = ["client"]
 }
 
 model Client {
-  id Int @id @default(autoincrement())
-  name String
-  email String
+  id    Int    @id @default(autoincrement())
+  name  String
+  email String @unique
+  @@schema("client")
 }
