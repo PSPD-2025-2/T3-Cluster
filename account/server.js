@@ -2,6 +2,7 @@ const grpc = require("@grpc/grpc-js");
 const { PrismaClient } = require("@prisma/client");
 const services = require("./account_grpc_pb");
 const messages = require("./account_pb");
+const { Empty } = require('google-protobuf/google/protobuf/empty_pb.js');
 
 const prisma = new PrismaClient();
 
@@ -121,7 +122,7 @@ const accountService = {
         where: { id: call.request.getId() },
       });
       console.log("Account deleted:", call.request.getId());
-      callback(null, new messages.Empty());
+      callback(null, new Empty());
     } catch (error) {
       console.error("Error deleting account:", error);
       if (error.code === "P2025") {

@@ -2,6 +2,7 @@ const grpc = require("@grpc/grpc-js");
 const { PrismaClient } = require("@prisma/client");
 const services = require("./client_grpc_pb");
 const messages = require("./client_pb");
+const { Empty } = require('google-protobuf/google/protobuf/empty_pb.js');
 
 const prisma = new PrismaClient();
 
@@ -114,7 +115,7 @@ const clientService = {
       await prisma.client.delete({
         where: { id: call.request.getId() },
       });
-      callback(null, new messages.Empty());
+      callback(null, new Empty());
     } catch (error) {
       console.error("Error deleting client:", error);
       if (error.code === 'P2025') { // Prisma error code for "Record to delete not found."
