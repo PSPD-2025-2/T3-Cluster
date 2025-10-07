@@ -145,7 +145,7 @@ const accountService = {
         where: { id: call.request.getFromAccount() },
       });
       const toAccount = await prisma.account.findUnique({
-        where: { id: call.request.getToAccount() },
+        where: { key: call.request.getToAccount() },
       });
 
       if (!fromAccount) {
@@ -180,7 +180,7 @@ const accountService = {
       const transaction = await prisma.transaction.create({
         data: {
           from_account: fromAccount.id,
-          to_account: toAccount.id,
+          to_account: toAccount.key,
           amount: call.request.getAmount(),
         },
       });
@@ -221,7 +221,7 @@ const accountService = {
         where: {
           OR: [
             { from_account: account.id },
-            { to_account: account.id },
+            { to_account: account.key },
           ],
         },
       });

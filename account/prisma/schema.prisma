@@ -28,10 +28,10 @@ model Account {
 
 model Transaction {
   id           Int      @id @default(autoincrement())
-  from         Account  @relation("AccountFrom", fields: [from_account], references: [id])
-  to           Account  @relation("AccountTo", fields: [to_account], references: [id])
+  from         Account  @relation("AccountFrom", fields: [from_account], references: [id], onDelete: Cascade)
+  to           Account  @relation("AccountTo", fields: [to_account], references: [key], onDelete: Cascade)
   from_account Int
-  to_account   Int
+  to_account   String
   amount       Float
   timestamp    DateTime @default(now())
 

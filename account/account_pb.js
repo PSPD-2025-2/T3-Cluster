@@ -948,7 +948,7 @@ proto.account.SendMoneyRequest.prototype.toObject = function(opt_includeInstance
 proto.account.SendMoneyRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     fromAccount: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    toAccount: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    toAccount: jspb.Message.getFieldWithDefault(msg, 2, ""),
     amount: jspb.Message.getFloatingPointFieldWithDefault(msg, 3, 0.0)
   };
 
@@ -991,7 +991,7 @@ proto.account.SendMoneyRequest.deserializeBinaryFromReader = function(msg, reade
       msg.setFromAccount(value);
       break;
     case 2:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {string} */ (reader.readString());
       msg.setToAccount(value);
       break;
     case 3:
@@ -1035,8 +1035,8 @@ proto.account.SendMoneyRequest.serializeBinaryToWriter = function(message, write
     );
   }
   f = message.getToAccount();
-  if (f !== 0) {
-    writer.writeInt32(
+  if (f.length > 0) {
+    writer.writeString(
       2,
       f
     );
@@ -1070,20 +1070,20 @@ proto.account.SendMoneyRequest.prototype.setFromAccount = function(value) {
 
 
 /**
- * optional int32 to_account = 2;
- * @return {number}
+ * optional string to_account = 2;
+ * @return {string}
  */
 proto.account.SendMoneyRequest.prototype.getToAccount = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
 
 /**
- * @param {number} value
+ * @param {string} value
  * @return {!proto.account.SendMoneyRequest} returns this
  */
 proto.account.SendMoneyRequest.prototype.setToAccount = function(value) {
-  return jspb.Message.setProto3IntField(this, 2, value);
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -1139,7 +1139,7 @@ proto.account.TransactionResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     id: jspb.Message.getFieldWithDefault(msg, 1, 0),
     fromAccount: jspb.Message.getFieldWithDefault(msg, 2, 0),
-    toAccount: jspb.Message.getFieldWithDefault(msg, 3, 0),
+    toAccount: jspb.Message.getFieldWithDefault(msg, 3, ""),
     amount: jspb.Message.getFloatingPointFieldWithDefault(msg, 4, 0.0),
     timestamp: jspb.Message.getFieldWithDefault(msg, 5, "")
   };
@@ -1187,7 +1187,7 @@ proto.account.TransactionResponse.deserializeBinaryFromReader = function(msg, re
       msg.setFromAccount(value);
       break;
     case 3:
-      var value = /** @type {number} */ (reader.readInt32());
+      var value = /** @type {string} */ (reader.readString());
       msg.setToAccount(value);
       break;
     case 4:
@@ -1242,8 +1242,8 @@ proto.account.TransactionResponse.serializeBinaryToWriter = function(message, wr
     );
   }
   f = message.getToAccount();
-  if (f !== 0) {
-    writer.writeInt32(
+  if (f.length > 0) {
+    writer.writeString(
       3,
       f
     );
@@ -1302,20 +1302,20 @@ proto.account.TransactionResponse.prototype.setFromAccount = function(value) {
 
 
 /**
- * optional int32 to_account = 3;
- * @return {number}
+ * optional string to_account = 3;
+ * @return {string}
  */
 proto.account.TransactionResponse.prototype.getToAccount = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
 /**
- * @param {number} value
+ * @param {string} value
  * @return {!proto.account.TransactionResponse} returns this
  */
 proto.account.TransactionResponse.prototype.setToAccount = function(value) {
-  return jspb.Message.setProto3IntField(this, 3, value);
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 

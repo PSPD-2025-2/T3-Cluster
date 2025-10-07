@@ -45,13 +45,13 @@ class CreateAccountModel(BaseModel):
 class TransactionModel(BaseModel):
     id: int
     from_account: int
-    to_account: int
+    to_account: str
     amount: float
     timestamp: str
 
 class CreateTransactionModel(BaseModel):
     from_account: int
-    to_account: int
+    to_account: str
     amount: float
 
 def handle_grpc_error(e: grpc.RpcError):

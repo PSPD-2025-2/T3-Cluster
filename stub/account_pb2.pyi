@@ -51,9 +51,9 @@ class SendMoneyRequest(_message.Message):
     TO_ACCOUNT_FIELD_NUMBER: _ClassVar[int]
     AMOUNT_FIELD_NUMBER: _ClassVar[int]
     from_account: int
-    to_account: int
+    to_account: str
     amount: float
-    def __init__(self, from_account: _Optional[int] = ..., to_account: _Optional[int] = ..., amount: _Optional[float] = ...) -> None: ...
+    def __init__(self, from_account: _Optional[int] = ..., to_account: _Optional[str] = ..., amount: _Optional[float] = ...) -> None: ...
 
 class TransactionResponse(_message.Message):
     __slots__ = ("id", "from_account", "to_account", "amount", "timestamp")
@@ -64,7 +64,7 @@ class TransactionResponse(_message.Message):
     TIMESTAMP_FIELD_NUMBER: _ClassVar[int]
     id: int
     from_account: int
-    to_account: int
+    to_account: str
     amount: float
     timestamp: str
-    def __init__(self, id: _Optional[int] = ..., from_account: _Optional[int] = ..., to_account: _Optional[int] = ..., amount: _Optional[float] = ..., timestamp: _Optional[str] = ...) -> None: ...
+    def __init__(self, id: _Optional[int] = ..., from_account: _Optional[int] = ..., to_account: _Optional[str] = ..., amount: _Optional[float] = ..., timestamp: _Optional[str] = ...) -> None: ...
