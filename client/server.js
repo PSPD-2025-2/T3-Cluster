@@ -7,6 +7,34 @@ const { Empty } = require('google-protobuf/google/protobuf/empty_pb.js');
 const prisma = new PrismaClient();
 
 const clientService = {
+  login: async (call, callback) => {
+    try {
+      const client = await prisma.client.findUnique({
+        where: { email: call.request.getEmail() },
+      });
+      if (client && client.password === call.request.getPassword()) {
+        console.log("Login successful for:", client.email);
+        const response = new messages.ClientResponse();
+        response.setId(client.id);
+        response.setName(client.name);
+        response.setEmail(client.email);
+        callback(null, response);
+      } else {
+        console.log("Invalid credentials for:", call.request.getEmail());
+        callback({
+          code: grpc.status.UNAUTHENTICATED,
+          details: "Invalid email or password",
+        });
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+      callback({
+        code: grpc.status.INTERNAL,
+        details: "Internal server error",
+      });
+    }
+  },
+
   listClients: async (call) => {
     try {
       const clients = await prisma.client.findMany();
@@ -85,6 +113,7 @@ const clientService = {
   updateClient: async (call, callback) => {
     try {
       const dataToUpdate = {};
+
       if (call.request.getName()) {
         dataToUpdate.name = call.request.getName();
       }

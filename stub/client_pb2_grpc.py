@@ -60,6 +60,11 @@ class ClientServiceStub(object):
                 request_serializer=client__pb2.ClientRequest.SerializeToString,
                 response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
                 _registered_method=True)
+        self.Login = channel.unary_unary(
+                '/client.ClientService/Login',
+                request_serializer=client__pb2.LoginRequest.SerializeToString,
+                response_deserializer=client__pb2.ClientResponse.FromString,
+                _registered_method=True)
 
 
 class ClientServiceServicer(object):
@@ -95,6 +100,13 @@ class ClientServiceServicer(object):
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
+    def Login(self, request, context):
+        """rpc Authenticate (AuthenticateRequest) returns (AuthenticateResponse);
+        """
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
 
 def add_ClientServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -122,6 +134,11 @@ def add_ClientServiceServicer_to_server(servicer, server):
                     servicer.DeleteClient,
                     request_deserializer=client__pb2.ClientRequest.FromString,
                     response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ),
+            'Login': grpc.unary_unary_rpc_method_handler(
+                    servicer.Login,
+                    request_deserializer=client__pb2.LoginRequest.FromString,
+                    response_serializer=client__pb2.ClientResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -259,6 +276,33 @@ class ClientService(object):
             '/client.ClientService/DeleteClient',
             client__pb2.ClientRequest.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def Login(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/client.ClientService/Login',
+            client__pb2.LoginRequest.SerializeToString,
+            client__pb2.ClientResponse.FromString,
             options,
             channel_credentials,
             insecure,

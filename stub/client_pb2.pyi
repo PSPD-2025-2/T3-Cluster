@@ -22,19 +22,31 @@ class ClientResponse(_message.Message):
     def __init__(self, id: _Optional[int] = ..., name: _Optional[str] = ..., email: _Optional[str] = ...) -> None: ...
 
 class CreateClientRequest(_message.Message):
-    __slots__ = ("name", "email")
+    __slots__ = ("name", "email", "password")
     NAME_FIELD_NUMBER: _ClassVar[int]
     EMAIL_FIELD_NUMBER: _ClassVar[int]
+    PASSWORD_FIELD_NUMBER: _ClassVar[int]
     name: str
     email: str
-    def __init__(self, name: _Optional[str] = ..., email: _Optional[str] = ...) -> None: ...
+    password: str
+    def __init__(self, name: _Optional[str] = ..., email: _Optional[str] = ..., password: _Optional[str] = ...) -> None: ...
 
 class UpdateClientRequest(_message.Message):
-    __slots__ = ("id", "name", "email")
+    __slots__ = ("id", "name", "email", "password")
     ID_FIELD_NUMBER: _ClassVar[int]
     NAME_FIELD_NUMBER: _ClassVar[int]
     EMAIL_FIELD_NUMBER: _ClassVar[int]
+    PASSWORD_FIELD_NUMBER: _ClassVar[int]
     id: int
     name: str
     email: str
-    def __init__(self, id: _Optional[int] = ..., name: _Optional[str] = ..., email: _Optional[str] = ...) -> None: ...
+    password: str
+    def __init__(self, id: _Optional[int] = ..., name: _Optional[str] = ..., email: _Optional[str] = ..., password: _Optional[str] = ...) -> None: ...
+
+class LoginRequest(_message.Message):
+    __slots__ = ("email", "password")
+    EMAIL_FIELD_NUMBER: _ClassVar[int]
+    PASSWORD_FIELD_NUMBER: _ClassVar[int]
+    email: str
+    password: str
+    def __init__(self, email: _Optional[str] = ..., password: _Optional[str] = ...) -> None: ...

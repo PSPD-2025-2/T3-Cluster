@@ -10,6 +10,7 @@ service ClientService {
     rpc CreateClient (CreateClientRequest) returns (ClientResponse);
     rpc UpdateClient (UpdateClientRequest) returns (ClientResponse);
     rpc DeleteClient (ClientRequest) returns (google.protobuf.Empty);
+    rpc Login (LoginRequest) returns (ClientResponse);
 }
 
 message ClientRequest {
@@ -33,4 +34,9 @@ message UpdateClientRequest {
     string name = 2;
     string email = 3;
     string password = 4;
+}
+
+message LoginRequest {
+    string email = 1;
+    string password = 2;
 }

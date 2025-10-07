@@ -4,7 +4,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
 import grpc
-from client_pb2 import ClientRequest, CreateClientRequest, UpdateClientRequest
+from client_pb2 import ClientRequest, CreateClientRequest, UpdateClientRequest, LoginRequest
 from client_pb2_grpc import ClientServiceStub
 from account_pb2 import AccountRequest, CreateAccountRequest, UpdateAccountRequest, SendMoneyRequest
 from account_pb2_grpc import AccountServiceStub
@@ -20,6 +20,18 @@ ACCOUNT_GRPC_CHANNEL = None
 ACCOUNT_STUB = None
 ACCOUNT_HOST = os.getenv('ACCOUNT_GRPC_HOST', 'localhost')
 ACCOUNT_PORT = os.getenv('ACCOUNT_GRPC_PORT', '50052')
+
+class LoginModel(BaseModel):
+    email: str
+    password: str
+
+class LoginResponseModel(BaseModel):
+    id: int
+    name: str
+    email: str
+    account: int
+    key: str
+    balance: float
 
 class ClientModel(BaseModel):
     id: int
@@ -62,6 +74,8 @@ def handle_grpc_error(e: grpc.RpcError):
         raise HTTPException(status_code=404, detail=e.details())
     elif e.code() == grpc.StatusCode.ALREADY_EXISTS:
         raise HTTPException(status_code=409, detail=e.details())
+    elif e.code() == grpc.StatusCode.UNAUTHENTICATED:
+        raise HTTPException(status_code=401, detail=e.details())
     elif e.code() == grpc.StatusCode.UNAVAILABLE:
         raise HTTPException(status_code=503, detail="gRPC service unavailable")
     else:
@@ -99,6 +113,28 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 
+@app.post("/login/", response_model=LoginResponseModel)
+def login(login: LoginModel):
+    """Realiza login via gRPC"""
+    if not (CLIENT_STUB or ACCOUNT_STUB):
+        raise HTTPException(status_code=503, detail="gRPC service not initialized")
+    try:
+        grpc_client_request = LoginRequest(email=login.email, password=login.password)
+        client_response = CLIENT_STUB.Login(grpc_client_request)
+        grpc_account_request = AccountRequest(id=client_response.id)
+        account_response = ACCOUNT_STUB.GetAccountByClient(grpc_account_request)
+        return LoginResponseModel(
+            id=client_response.id,
+            name=client_response.name,
+            email=client_response.email,
+            account=account_response.id,
+            key=account_response.key,
+            balance=account_response.balance
+        )
+
+    except grpc.RpcError as e:
+        handle_grpc_error(e)
+
 @app.get("/clients/", response_model=List[ClientModel])
 def get_all_clients():
     """Busca e retorna todos os clientes via gRPC"""
@@ -128,7 +164,7 @@ def create_client(client: CreateClientModel):
     if not CLIENT_STUB:
         raise HTTPException(status_code=503, detail="gRPC service not initialized")
     try:
-        grpc_request = CreateClientRequest(name=client.name, email=client.email)
+        grpc_request = CreateClientRequest(name=client.name, email=client.email, password=client.password)
         response = CLIENT_STUB.CreateClient(grpc_request)
         return response
     except grpc.RpcError as e:
@@ -140,7 +176,7 @@ def patch_client(id: int, client: CreateClientModel):
     if not CLIENT_STUB:
         raise HTTPException(status_code=503, detail="gRPC service not initialized")
     try:
-        grpc_request = UpdateClientRequest(id=id, name=client.name, email=client.email)
+        grpc_request = UpdateClientRequest(id=id, name=client.name, email=client.email, password=client.password)
         response = CLIENT_STUB.UpdateClient(grpc_request)
         return response
     except grpc.RpcError as e:

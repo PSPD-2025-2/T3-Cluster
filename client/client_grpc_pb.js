@@ -38,6 +38,17 @@ function deserialize_client_CreateClientRequest(buffer_arg) {
   return client_pb.CreateClientRequest.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_client_LoginRequest(arg) {
+  if (!(arg instanceof client_pb.LoginRequest)) {
+    throw new Error('Expected argument of type client.LoginRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_client_LoginRequest(buffer_arg) {
+  return client_pb.LoginRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_client_UpdateClientRequest(arg) {
   if (!(arg instanceof client_pb.UpdateClientRequest)) {
     throw new Error('Expected argument of type client.UpdateClientRequest');
@@ -117,6 +128,18 @@ var ClientServiceService = exports.ClientServiceService = {
     responseSerialize: serialize_google_protobuf_Empty,
     responseDeserialize: deserialize_google_protobuf_Empty,
   },
+  login: {
+    path: '/client.ClientService/Login',
+    requestStream: false,
+    responseStream: false,
+    requestType: client_pb.LoginRequest,
+    responseType: client_pb.ClientResponse,
+    requestSerialize: serialize_client_LoginRequest,
+    requestDeserialize: deserialize_client_LoginRequest,
+    responseSerialize: serialize_client_ClientResponse,
+    responseDeserialize: deserialize_client_ClientResponse,
+  },
+  // rpc Authenticate (AuthenticateRequest) returns (AuthenticateResponse);
 };
 
 exports.ClientServiceClient = grpc.makeGenericClientConstructor(ClientServiceService, 'ClientService');

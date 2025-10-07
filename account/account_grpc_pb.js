@@ -95,6 +95,17 @@ var AccountServiceService = exports.AccountServiceService = {
     responseSerialize: serialize_account_AccountResponse,
     responseDeserialize: deserialize_account_AccountResponse,
   },
+  getAccountByClient: {
+    path: '/account.AccountService/GetAccountByClient',
+    requestStream: false,
+    responseStream: false,
+    requestType: account_pb.AccountRequest,
+    responseType: account_pb.AccountResponse,
+    requestSerialize: serialize_account_AccountRequest,
+    requestDeserialize: deserialize_account_AccountRequest,
+    responseSerialize: serialize_account_AccountResponse,
+    responseDeserialize: deserialize_account_AccountResponse,
+  },
   listAccounts: {
     path: '/account.AccountService/ListAccounts',
     requestStream: false,

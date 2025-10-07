@@ -58,6 +58,36 @@ const accountService = {
     }
   },
 
+  getAccountByClient: async (call, callback) => {
+    try {
+      const account = await prisma.account.findFirst({
+        where: { client: call.request.getId() },
+      });
+
+      if (account) {
+        console.log(account);
+        const response = new messages.AccountResponse();
+        response.setId(account.id);
+        response.setClient(account.client);
+        response.setKey(account.key);
+        response.setBalance(account.balance);
+        callback(null, response);
+      } else {
+        console.log("Account not found");
+        callback({
+          code: grpc.status.NOT_FOUND,
+          details: "Account not found",
+        });
+      }
+    } catch (error) {
+      console.error("Error fetching account by client:", error);
+      callback({
+        code: grpc.status.INTERNAL,
+        details: "Internal server error",
+      });
+    }
+  },
+
   createAccount: async (call, callback) => {
     try {
       const account = await prisma.account.create({
