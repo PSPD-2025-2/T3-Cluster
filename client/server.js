@@ -59,14 +59,13 @@ const clientService = {
   createClient: async (call, callback) => {
     try {
       const client = await prisma.client.create({
-        data: { name: call.request.getName(), email: call.request.getEmail() },
+        data: { name: call.request.getName(), email: call.request.getEmail(), password: call.request.getPassword() },
       });
       console.log(client);
       const response = new messages.ClientResponse();
       response.setId(client.id);
       response.setName(client.name);
       response.setEmail(client.email);
-      response.setPassword(client.password);
       callback(null, response);
     } catch (error) {
       console.error("Error creating client:", error);
