@@ -1,10 +1,15 @@
 const grpc = require("@grpc/grpc-js");
 const { PrismaClient } = require("@prisma/client");
 const services = require("./account_grpc_pb");
+const clientServices = require("./client_grpc_pb");
+const clientMessages = require("./client_pb");
 const messages = require("./account_pb");
 const { Empty } = require('google-protobuf/google/protobuf/empty_pb.js');
 
 const prisma = new PrismaClient();
+
+const CLIENT_HOST = process.env.CLIENT_GRPC_HOST || "localhost";
+const CLIENT_PORT = process.env.CLIENT_GRPC_PORT || "50051";
 
 const accountService = {
   listAccounts: async (call) => {
@@ -90,6 +95,39 @@ const accountService = {
 
   createAccount: async (call, callback) => {
     try {
+
+      const clientClient = new clientServices.ClientServiceClient(
+        `${CLIENT_HOST}:${CLIENT_PORT}`,
+        grpc.credentials.createInsecure()
+      );
+
+      const checkClientExistence = () => {
+        return new Promise((resolve, reject) => {
+          const request = new clientMessages.ClientRequest();
+          request.setId(call.request.getClient());
+
+          clientClient.getClient(request, (err, response) => {
+            if (err) {
+              if (err.code === grpc.status.NOT_FOUND) {
+                return resolve(false);
+              }
+              return reject(err);
+            }
+            resolve(true);
+          });
+        });
+      };
+
+      const clientExists = await checkClientExistence();
+
+      if (!clientExists) {
+        console.log("Client not found for account creation");
+        return callback({
+          code: grpc.status.NOT_FOUND,
+          details: "Client not found",
+        });
+      }
+
       const account = await prisma.account.create({
         data: {
           client: call.request.getClient(),

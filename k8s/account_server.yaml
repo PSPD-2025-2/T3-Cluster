@@ -34,6 +34,10 @@ spec:
                 secretKeyRef:
                   name: client-db-url
                   key: DATABASE_URL
+            - name: CLIENT_GRPC_HOST
+              value: "clientserver"
+            - name: CLIENT_GRPC_PORT
+              value: "50051"
           readinessProbe:
             tcpSocket:
               port: 50052
