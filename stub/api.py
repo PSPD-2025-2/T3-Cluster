@@ -29,6 +29,7 @@ class ClientModel(BaseModel):
 class CreateClientModel(BaseModel):
     name: str
     email: str
+    password: str
 
 class AccountModel(BaseModel):
     id: int
