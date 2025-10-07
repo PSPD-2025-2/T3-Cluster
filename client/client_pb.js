@@ -464,7 +464,8 @@ proto.client.CreateClientRequest.prototype.toObject = function(opt_includeInstan
 proto.client.CreateClientRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     name: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    email: jspb.Message.getFieldWithDefault(msg, 2, "")
+    email: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    password: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -509,6 +510,10 @@ proto.client.CreateClientRequest.deserializeBinaryFromReader = function(msg, rea
       var value = /** @type {string} */ (reader.readString());
       msg.setEmail(value);
       break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setPassword(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -552,6 +557,13 @@ proto.client.CreateClientRequest.serializeBinaryToWriter = function(message, wri
       f
     );
   }
+  f = message.getPassword();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
 };
 
 
@@ -591,6 +603,24 @@ proto.client.CreateClientRequest.prototype.setEmail = function(value) {
 };
 
 
+/**
+ * optional string password = 3;
+ * @return {string}
+ */
+proto.client.CreateClientRequest.prototype.getPassword = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.client.CreateClientRequest} returns this
+ */
+proto.client.CreateClientRequest.prototype.setPassword = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
 
 
 
@@ -625,7 +655,8 @@ proto.client.UpdateClientRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     id: jspb.Message.getFieldWithDefault(msg, 1, 0),
     name: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    email: jspb.Message.getFieldWithDefault(msg, 3, "")
+    email: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    password: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -674,6 +705,10 @@ proto.client.UpdateClientRequest.deserializeBinaryFromReader = function(msg, rea
       var value = /** @type {string} */ (reader.readString());
       msg.setEmail(value);
       break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setPassword(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -721,6 +756,13 @@ proto.client.UpdateClientRequest.serializeBinaryToWriter = function(message, wri
   if (f.length > 0) {
     writer.writeString(
       3,
+      f
+    );
+  }
+  f = message.getPassword();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
       f
     );
   }
@@ -778,6 +820,24 @@ proto.client.UpdateClientRequest.prototype.getEmail = function() {
  */
 proto.client.UpdateClientRequest.prototype.setEmail = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
+};
+
+
+/**
+ * optional string password = 4;
+ * @return {string}
+ */
+proto.client.UpdateClientRequest.prototype.getPassword = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.client.UpdateClientRequest} returns this
+ */
+proto.client.UpdateClientRequest.prototype.setPassword = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 

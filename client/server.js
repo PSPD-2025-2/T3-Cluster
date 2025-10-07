@@ -66,6 +66,7 @@ const clientService = {
       response.setId(client.id);
       response.setName(client.name);
       response.setEmail(client.email);
+      response.setPassword(client.password);
       callback(null, response);
     } catch (error) {
       console.error("Error creating client:", error);
@@ -84,10 +85,22 @@ const clientService = {
   
   updateClient: async (call, callback) => {
     try {
+      const dataToUpdate = {};
+      if (call.request.getName()) {
+        dataToUpdate.name = call.request.getName();
+      }
+      if (call.request.getEmail()) {
+        dataToUpdate.email = call.request.getEmail();
+      }
+      if (call.request.getPassword()) {
+        dataToUpdate.password = call.request.getPassword();   
+      }
+
       const client = await prisma.client.update({
         where: { id: call.request.getId() },
-        data: { name: call.request.getName(), email: call.request.getEmail() },
+        data: dataToUpdate,
       });
+
       console.log(client);
       const response = new messages.ClientResponse();
       response.setId(client.id);
