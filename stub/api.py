@@ -2,6 +2,7 @@ import contextlib
 from typing import List
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
+from starlette.middleware.cors import CORSMiddleware
 
 import grpc
 from client_pb2 import ClientRequest, CreateClientRequest, UpdateClientRequest, LoginRequest
@@ -112,6 +113,14 @@ async def lifespan(app: FastAPI):
         print("account gRPC connection closed.")
 
 app = FastAPI(lifespan=lifespan)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.post("/login/", response_model=LoginResponseModel)
 def login(login: LoginModel):
