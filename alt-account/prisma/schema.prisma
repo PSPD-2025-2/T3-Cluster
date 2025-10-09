@@ -1,0 +1,39 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  schemas = ["account"]
+}
+
+model Account {
+  id      Int    @id @default(autoincrement())
+  client  Int
+  key     String @unique
+  balance Float
+
+  sentTransactions     Transaction[] @relation("AccountFrom")
+  receivedTransactions Transaction[] @relation("AccountTo")
+
+  @@schema("account")
+}
+
+model Transaction {
+  id           Int      @id @default(autoincrement())
+  from         Account  @relation("AccountFrom", fields: [from_account], references: [id], onDelete: Cascade)
+  to           Account  @relation("AccountTo", fields: [to_account], references: [key], onDelete: Cascade)
+  from_account Int
+  to_account   String
+  amount       Float
+  timestamp    DateTime @default(now())
+
+  @@schema("account")
+}
