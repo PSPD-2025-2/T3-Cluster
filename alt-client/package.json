@@ -1,0 +1,17 @@
+{
+  "name": "alt-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fastify": "^5.6.1",
+    "@prisma/client": "^6.16.3",
+    "prisma": "^6.16.3"
+  }
+}
