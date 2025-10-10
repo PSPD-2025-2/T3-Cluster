@@ -1,0 +1,132 @@
+-------- GRPC ---------------
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: k6.js
+        output: json (resultado-10vus-2m-grpc.json)
+
+     scenarios: (100.00%) 1 scenario, 10 max VUs, 2m30s max duration (incl. graceful stop):
+              * default: 10 looping VUs for 2m0s (gracefulStop: 30s)
+
+INFO[0000] Setting up static recipient with key: static_recipient_key  source=console
+INFO[0127] Starting teardown: Deleting static recipient data...  source=console
+INFO[0127] Successfully deleted recipient account ID: 1  source=console
+INFO[0127] Successfully deleted recipient client ID: 1   source=console
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 16832   140.407173/s
+    checks_succeeded...: 100.00% 16832 out of 16832
+    checks_failed......: 0.00%   0 out of 16832
+
+    ✓ create client status is 200
+    ✓ create client body has id
+    ✓ get client status is 200
+    ✓ get client body has correct id
+    ✓ create account status is 200
+    ✓ create account body has id
+    ✓ get account status is 200
+    ✓ get account body has correct id
+    ✓ login status is 200
+    ✓ login body has id and account
+    ✓ create transaction status is 200
+    ✓ create transaction body has id
+    ✓ get transactions status is 200
+    ✓ get transactions body is array
+    ✓ delete account status is 200
+    ✓ delete client status is 200
+
+    HTTP
+    http_req_duration..............: avg=14.75ms min=72.03µs med=10.27ms max=3.09s p(90)=27.48ms p(95)=35.4ms
+      { expected_response:true }...: avg=14.75ms min=72.03µs med=10.27ms max=3.09s p(90)=27.48ms p(95)=35.4ms
+    http_req_failed................: 0.00%  0 out of 10524
+    http_reqs......................: 10524  87.78785/s
+
+    EXECUTION
+    iteration_duration.............: avg=1.14s   min=1.08s   med=1.12s   max=1.57s p(90)=1.22s   p(95)=1.34s 
+    iterations.....................: 1052   8.775448/s
+    vus............................: 1      min=0          max=10
+    vus_max........................: 10     min=10         max=10
+
+    NETWORK
+    data_received..................: 2.1 MB 17 kB/s
+    data_sent......................: 1.4 MB 12 kB/s
+
+
+
+
+running (1m59.9s), 00/10 VUs, 1052 complete and 0 interrupted iterations
+default ✓ [======================================] 10 VUs  2m0s
+
+
+-------- REST ---------------
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+     execution: local
+        script: k6.js
+        output: json (resultado-10vus-2m-rest.json)
+
+     scenarios: (100.00%) 1 scenario, 10 max VUs, 2m30s max duration (incl. graceful stop):
+              * default: 10 looping VUs for 2m0s (gracefulStop: 30s)
+
+INFO[0000] Setting up static recipient with key: static_recipient_key  source=console
+INFO[0121] Starting teardown: Deleting static recipient data...  source=console
+INFO[0121] Successfully deleted recipient account ID: 1018  source=console
+INFO[0121] Successfully deleted recipient client ID: 1029  source=console
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 16768   147.460073/s
+    checks_succeeded...: 100.00% 16768 out of 16768
+    checks_failed......: 0.00%   0 out of 16768
+
+    ✓ create client status is 200
+    ✓ create client body has id
+    ✓ get client status is 200
+    ✓ get client body has correct id
+    ✓ create account status is 200
+    ✓ create account body has id
+    ✓ get account status is 200
+    ✓ get account body has correct id
+    ✓ login status is 200
+    ✓ login body has id and account
+    ✓ create transaction status is 200
+    ✓ create transaction body has id
+    ✓ get transactions status is 200
+    ✓ get transactions body is array
+    ✓ delete account status is 200
+    ✓ delete client status is 200
+
+    HTTP
+    http_req_duration..............: avg=14.83ms min=118.72µs med=10.7ms max=252.02ms p(90)=28.86ms p(95)=39.65ms
+      { expected_response:true }...: avg=14.83ms min=118.72µs med=10.7ms max=252.02ms p(90)=28.86ms p(95)=39.65ms
+    http_req_failed................: 0.00%  0 out of 10484
+    http_reqs......................: 10484  92.197722/s
+
+    EXECUTION
+    iteration_duration.............: avg=1.15s   min=1.07s    med=1.11s  max=1.75s    p(90)=1.23s   p(95)=1.37s  
+    iterations.....................: 1048   9.216255/s
+    vus............................: 3      min=3          max=10
+    vus_max........................: 10     min=10         max=10
+
+    NETWORK
+    data_received..................: 2.1 MB 18 kB/s
+    data_sent......................: 1.4 MB 13 kB/s
+
+
+
+
+running (1m53.7s), 00/10 VUs, 1048 complete and 0 interrupted iterations
+default ✓ [======================================] 10 VUs  2m0s
