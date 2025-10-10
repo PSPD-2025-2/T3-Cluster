@@ -2,6 +2,10 @@
 
 Repositório do Trabalho 1 da disciplina de PSPD - Prof. Fernando William Cruz.
 
+## Link do Vídeo de Apresentação
+
+[https://youtu.be/9yfEpsxFwE8](https://youtu.be/9yfEpsxFwE8)
+
 ## Descrição
 
 Este projeto implementa um sistema bancário simples usando uma arquitetura de microserviços. A comunicação principal entre os serviços é realizada via **gRPC**, enquanto um **API Gateway (Stub)** em Python expõe os endpoints HTTP para clientes externos.
@@ -148,3 +152,55 @@ DELETE |        /clients/{id}         | Apaga um cliente.              |   Clien
 DELETE |        /accounts/{id}        | Apaga uma conta.               |  AccountService.DeleteAccount
  POST  |        /transactions/        | Envia dinheiro entre contas.   |    AccountService.SendMoney
   GET  | /accounts/{id}/transactions/ | Lista transações de uma conta. | AccountService.ListTransactions
+
+
+## 📈 Análise de Performance e Escalabilidade (gRPC vs. REST/Fastify)
+
+Para determinar a arquitetura mais eficiente, foram realizadas duas fases de testes de carga utilizando a ferramenta k6, comparando a implementação original em gRPC (serialização Protobuf) com a implementação alternativa em REST (Node.js/Fastify, serialização JSON).
+
+O cenário de teste simula um ciclo completo de uso do sistema: Criação de Cliente, Criação de Conta, Login, Transação de Saldo e Exclusão (CRUD completo) para cada usuário virtual (VU).
+
+### Fase 1: Baseline (5 VUs, 60 Segundos)
+
+Esta fase estabeleceu a linha de base do desempenho com carga leve para medir o overhead intrínseco de cada protocolo.
+
+<center>
+
+Tabela 1: Resultados dos Testes Realizados da Fase 1
+
+| Métrica HTTP | gRPC | REST/Fastify | Vencedor |
+| :--- | :--- | :--- | :--- |
+| Latência Média (avg) | 22.66ms | 26.33ms | gRPC |
+| Latência P95 | 56.06ms | 61.15ms | gRPC |
+| Throughput (reqs/s) | 40.42/s | 39.24/s | gRPC |
+| Total de Requisições | 2474 | 2404 | gRPC |
+| Taxa de Erro | 0.00% | 0.00% | Empate |
+
+</center>
+
+### Fase 2: Teste de Estresse e Escala (10 VUs, 2 Minutos)
+
+Esta fase aumentou a carga para 10 VUs por 2 minutos, forçando o sistema a operar sob maior estresse de concorrência e estabilidade.
+
+<center>
+
+Tabela 2: Resultados dos Testes Realizados da Fase 2 (10 VUs, 2 Minutos)
+
+| Métrica HTTP | gRPC | REST/Fastify | Vencedor |
+| :--- | :--- | :--- | :--- |
+| Latência Média (avg) | 14.75 ms | 14.83 ms | gRPC |
+| Latência Mediana (med) | 10.27 ms | 10.7 ms | gRPC |
+| Latência P95 | 35.4 ms | 39.65 ms | gRPC |
+| Throughput (req/s) | 87.79/s | 92.20/s | REST/Fastify |
+| Total de Requisições | 10524 | 10484 | gRPC |
+| Taxa de Erro | 0.00% | 0.00% | Empate |
+
+</center>
+
+### Conclusão
+
+- Na carga inicial, o gRPC demonstrou latência e throughput superiores, confirmando a eficiência da serialização binária do Protobuf.
+- Na fase 2, ambos os sistemas demonstraram excelente escalabilidade , mantendo 0% de taxa de erro sob carga triplicada e melhorando as métricas de latência em comparação à Fase 1 (ex: Latência Média do gRPC caiu de 22.66ms para 14.75ms)
+- O gRPC manteve sua superioridade na métrica crítica de P95:
+    - O gRPC foi concluído em 35.4ms no worst-case scenario (95% das requisições), sendo 10.5% mais rápido que o REST/Fastify (39.65ms).
+- O REST/Fastify alcançou um throughput marginalmente maior (92.20 requisições/s vs 87.79 requisições/s), indicando que sua arquitetura pode processar ligeiramente mais requisições por segundo sob saturação. No entanto, essa pequena vantagem de vazão vem acompanhada de uma latência de P95 mais alta
