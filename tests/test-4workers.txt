@@ -1,0 +1,67 @@
+
+         /\      Grafana   /‾‾/
+    /\  /  \     |\  __   /  /
+   /  \/    \    | |/ /  /   ‾‾\
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/
+
+     execution: local
+        script: k6.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 100 max VUs, 10m30s max duration (incl. graceful stop):
+              * default: 100 looping VUs for 10m0s (gracefulStop: 30s)
+
+INFO[0000] Setting up static recipient with key: static_recipient_key  source=console
+WARN[0077] The test has generated metrics with 100014 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details.  component=metrics-engine-ingester
+WARN[0176] The test has generated metrics with 200031 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details.  component=metrics-engine-ingester
+WARN[0361] The test has generated metrics with 400047 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details.  component=metrics-engine-ingester
+INFO[0609] Starting teardown: Deleting static recipient data...  source=console
+INFO[0609] Successfully deleted recipient account ID: 1  source=console
+INFO[0609] Successfully deleted recipient client ID: 1   source=console
+
+
+  █ TOTAL RESULTS
+
+    checks_total.......: 194400  318.440285/s
+    checks_succeeded...: 100.00% 194400 out of 194400
+    checks_failed......: 0.00%   0 out of 194400
+
+    ✓ create client status is 200
+    ✓ create client body has id
+    ✓ get client status is 200
+    ✓ get client body has correct id
+    ✓ create account status is 200
+    ✓ create account body has id
+    ✓ get account status is 200
+    ✓ get account body has correct id
+    ✓ login status is 200
+    ✓ login body has id and account
+    ✓ create transaction status is 200
+    ✓ create transaction body has id
+    ✓ get transactions status is 200
+    ✓ get transactions body is array
+    ✓ delete account status is 200
+    ✓ delete client status is 200
+
+    HTTP
+    http_req_duration..............: avg=396.43ms min=995.16µs med=264.4ms max=15.01s p(90)=832.44ms p(95)=1.37s
+      { expected_response:true }...: avg=396.43ms min=995.16µs med=264.4ms max=15.01s p(90)=832.44ms p(95)=1.37s
+    http_req_failed................: 0.00%  0 out of 121504
+    http_reqs......................: 121504 199.03173/s
+
+    EXECUTION
+    iteration_duration.............: avg=4.96s    min=1.09s    med=4.26s   max=22.5s  p(90)=7.05s    p(95)=11.97s
+    iterations.....................: 12150  19.902518/s
+    vus............................: 82     min=0           max=100
+    vus_max........................: 100    min=100         max=100
+
+    NETWORK
+    data_received..................: 24 MB  39 kB/s
+    data_sent......................: 17 MB  27 kB/s
+
+
+
+
+running (10m10.5s), 000/100 VUs, 12150 complete and 0 interrupted iterations
+default ✓ [======================================] 100 VUs  10m0s
