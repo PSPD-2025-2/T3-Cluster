@@ -1,0 +1,67 @@
+
+         /\      Grafana   /‾‾/
+    /\  /  \     |\  __   /  /
+   /  \/    \    | |/ /  /   ‾‾\
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/
+
+     execution: local
+        script: k6.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 100 max VUs, 10m30s max duration (incl. graceful stop):
+              * default: 100 looping VUs for 10m0s (gracefulStop: 30s)
+
+INFO[0000] Setting up static recipient with key: static_recipient_key  source=console
+WARN[0055] The test has generated metrics with 100005 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details.  component=metrics-engine-ingester
+WARN[0105] The test has generated metrics with 200067 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details.  component=metrics-engine-ingester
+WARN[0207] The test has generated metrics with 400011 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details.  component=metrics-engine-ingester
+WARN[0430] The test has generated metrics with 800016 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details.  component=metrics-engine-ingester
+INFO[0609] Starting teardown: Deleting static recipient data...  source=console
+INFO[0609] Successfully deleted recipient account ID: 1  source=console
+INFO[0609] Successfully deleted recipient client ID: 1   source=console
+
+
+  █ TOTAL RESULTS
+
+    checks_total.......: 324000  534.018417/s
+    checks_succeeded...: 100.00% 324000 out of 324000
+    checks_failed......: 0.00%   0 out of 324000
+
+    ✓ create client status is 200
+    ✓ create client body has id
+    ✓ get client status is 200
+    ✓ get client body has correct id
+    ✓ create account status is 200
+    ✓ create account body has id
+    ✓ get account status is 200
+    ✓ get account body has correct id
+    ✓ login status is 200
+    ✓ login body has id and account
+    ✓ create transaction status is 200
+    ✓ create transaction body has id
+    ✓ get transactions status is 200
+    ✓ get transactions body is array
+    ✓ delete account status is 200
+    ✓ delete client status is 200
+
+    HTTP
+    http_req_duration..............: avg=195.92ms min=-104762373ns med=117.94ms max=8.08s  p(90)=417.3ms p(95)=611.58ms
+      { expected_response:true }...: avg=195.92ms min=-104762373ns med=117.94ms max=8.08s  p(90)=417.3ms p(95)=611.58ms
+    http_req_failed................: 0.00%  0 out of 202504
+    http_reqs......................: 202504 333.768103/s
+
+    EXECUTION
+    iteration_duration.............: avg=2.97s    min=1.08s        med=2.64s    max=13.98s p(90)=4.03s   p(95)=7.07s
+    iterations.....................: 20250  33.376151/s
+    vus............................: 48     min=0           max=100
+    vus_max........................: 100    min=100         max=100
+
+    NETWORK
+    data_received..................: 40 MB  66 kB/s
+    data_sent......................: 28 MB  46 kB/s
+
+
+
+
+running (10m06.7s), 000/100 VUs, 20250 complete and 0 interrupted iterations

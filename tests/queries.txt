@@ -1,0 +1,54 @@
+-- TP
+sum(
+  rate(http_requests_total{
+    namespace="t3",
+    service="stub-service",
+  }[15m])
+)
+
+-- TP endpoint
+sum by (endpoint)(
+  rate(http_requests_total{namespace="t3", service="stub-service"}[15m])
+)
+
+-- Latencia
+sum(
+  rate(http_request_duration_seconds_sum{
+    namespace="t3",
+    service="stub-service"
+  }[15m])
+)
+/
+sum(
+  rate(http_request_duration_seconds_count{
+    namespace="t3",
+    service="stub-service"
+  }[15m])
+)
+
+- P95
+histogram_quantile(
+  0.95,
+  sum by (le)(
+    rate(http_request_duration_seconds_bucket{
+      namespace="t3",
+      service="stub-service"
+    }[15m])
+  )
+)
+
+-- CPU
+sum by (pod)(
+  rate(container_cpu_usage_seconds_total{
+    namespace="t3",
+    pod=~"stub-.*"
+  }[5m])
+)
+
+-- MEM
+sum by (pod)(
+  container_memory_usage_bytes{
+    namespace="t3",
+    pod=~"stub-.*"
+  }
+)

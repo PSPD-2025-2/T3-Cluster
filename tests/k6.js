@@ -7,7 +7,7 @@ export const options = {
   duration: '2m',
 }
 
-const BASE_URL = 'http://localhost:8080'
+const BASE_URL = 'http://localhost:30080'
 
 
 function createStaticRecipient(url, key) {
