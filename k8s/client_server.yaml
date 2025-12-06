@@ -28,6 +28,13 @@ spec:
           image: martinsglucas/t1-clientserver:latest
           ports:
             - containerPort: 50051
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "300m"
+              memory: "256Mi"
           env:
             - name: DATABASE_URL
               valueFrom:
