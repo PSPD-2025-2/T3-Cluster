@@ -1,206 +1,213 @@
-# Trabalho 1 PSPD - Microserviços & gRPC
+# T3 – Cluster Kubernetes, gRPC e Monitoramento
 
-Repositório do Trabalho 1 da disciplina de PSPD - Prof. Fernando William Cruz.
+**Grupo**:
 
-## Link do Vídeo de Apresentação
+| Nome                | Matrícula  |
+|---------------------|------------|
+| Guilherme Westphall | 211061805  |
+| Lucas Martins       | 221022088  |
 
-[https://youtu.be/9yfEpsxFwE8](https://youtu.be/9yfEpsxFwE8)
-
-## Descrição
-
-Este projeto implementa um sistema bancário simples usando uma arquitetura de microserviços. A comunicação principal entre os serviços é realizada via **gRPC**, enquanto um **API Gateway (Stub)** em Python expõe os endpoints HTTP para clientes externos.
-
-Os microserviços são:
-1.  **Client Server (Node.js)**: Gerenciamento de clientes.
-2.  **Account Server (Node.js)**: Gerenciamento de contas e transações.
-3.  **Stub (Python/FastAPI)**: API Gateway e tradução HTTP para gRPC.
-
-## 📐 Arquitetura do Projeto
-
-O sistema é dividido em três camadas principais:
-
-| Componente | Tecnologia | Função | Comunicação | Porta Padrão |
-| :--- | :--- | :--- | :--- | :--- |
-| **Client Server** | Node.js, Prisma (PostgreSQL) | CRUD e autenticação de clientes. | gRPC | `50051` |
-| **Account Server** | Node.js, Prisma (PostgreSQL) | CRUD de contas e lógica transacional. | gRPC (Externo) e gRPC (Interno: chama Client Server) | `50052` |
-| **Stub (API Gateway)** | Python, FastAPI, gRPC-Python | Expõe endpoints HTTP e roteia para os serviços gRPC. | HTTP (Externo) e gRPC (Interno) | `8000` (interno), `30080` (externo via NodePort) |
-
-### Database
-
-Ambos os serviços (`client` e `account`) utilizam **PostgreSQL** com **Prisma** como ORM, cada um gerenciando seus próprios schemas (`client` e `account`).
-
-## 📁 Estrutura do Repositório
-
-```T1-WebServer-gRPCStub/
-.
-├── account/                  # Código do Microserviço Account
-│   ├── prisma/               # Schemas e Migrations do Prisma (Account)
-|   ├── Dockerfile            # Dockerfile do Account Server
-│   ├── account_pb.js         # Arquivos gRPC gerados
-│   ├── client_pb.js          # Arquivos gRPC do Client (para comunicação interna)
-│   └── server.js             # Lógica do servidor gRPC Account
-|
-├── client/                   # Código do Microserviço Client
-│   ├── prisma/               # Schemas e Migrations do Prisma (Client)
-|   ├── Dockerfile            # Dockerfile do Client Server
-|   ├── client_pb.js          # Arquivos gRPC gerados
-│   └── server.js             # Lógica do servidor gRPC Client
-|
-├── k8s/                      # Configurações de Deploy para Kubernetes
-│   ├── namespace.yaml        # Namespace para o deploy
-│   ├── secrets-dev.yaml      # Secrets para o banco de dados
-│   ├── postgres.yaml         # Deployment/Service do PostgreSQL
-│   ├── client_server.yaml    # Deployment/Service do Client Server
-│   ├── account_server.yaml   # Deployment/Service do Account Server
-│   └── stub.yaml             # Deployment/Service do Stub (API Gateway)
-|
-├── protos/                   # Arquivos de definição de serviço gRPC (.proto)
-│   ├── account.proto         # Definição do AccountService
-│   └── client.proto          # Definição do ClientService
-|
-└── stub/                     # API Gateway (FastAPI)
-    ├── Dockerfile            # Dockerfile do Stub
-    ├── account_pb2.py        # Arquivos gRPC gerados
-    ├── client_pb2.py         # Arquivos gRPC gerados
-    ├── api.py                # Implementação dos Endpoints REST e lógica de roteamento gRPC
-    └── requirements.txt      # Dependências Python
-```
-
-## 📦 Definições gRPC (Protobuf)
-
-Os arquivos `.proto` definem a interface de serviço e as mensagens de dados:
-
-- `protos/client.proto`: Define o `ClientService` com métodos para CRUD de clientes e Login.
-
-- `protos/account.proto`: Define o `AccountService` com métodos para CRUD de contas, SendMoney e ListTransactions.
-
-A definição de serviço no Account Server é um bom exemplo de inter-serviço (Service-to-Service): o método CreateAccount no Account Server faz uma chamada gRPC para o ClientService.GetClient no Client Server para validar a existência do cliente antes de criar a conta.
-
-## 🛠️ Configuração e Deploy
-
-### Pré-requisitos
-
-Para rodar o projeto localmente ou em Kubernetes, você precisará de:
-* Docker
-* Kubernetes Cluster (Minikube)
-* `kubectl` (para deploy no Kubernetes)
-
-### Deploy no Kubernetes
-
-O método de deploy recomendado usa os arquivos YAML fornecidos no diretório `k8s/`.
-
-#### 1. Criar o Namespace e Secrets
-
-Aplique o namespace e os secrets de banco de dados. O `secrets-dev.yaml` define o `client-db-url` e as credenciais padrão para o `postgres` (usuário: `postgres`, senha: `postgrespw`, db: `clientdb`).
-
-```bash
-kubectl apply -f k8s/namespace.yaml
-kubectl apply -f k8s/secrets-dev.yaml
-```
-
-#### 2. Deploy do Banco de Dados
-
-Implante o PostgreSQL.
-
-```bash
-kubectl apply -f k8s/postgres.yaml
-```
-
-#### 3. Deploy dos Microserviços
-
-Implante o servidor de clientes e o servidor de contas. Eles se comunicam internamente usando os nomes de serviço definidos em `k8s/` (`clientserver:50051` e `accountserver:50052`)
-
-```bash
-kubectl apply -f k8s/client_server.yaml
-kubectl apply -f k8s/account_server.yaml
-```
-
-> **Nota sobre migrations**: As migrations do Prisma são aplicadas automaticamente no startup dos serviços.
-
-#### 4. Deploy do Stub (API Gateway)
-
-Implante o servidor FastAPI, que atua como API Gateway.
-
-```bash
-kubectl apply -f k8s/stub.yaml
-```
-
-O `stub-service` expõe a porta `30080` do nó (via `NodePort`). Para acessar a API:
-
-```bash
-# Obtenha o IP do seu nó (e.g., Minikube IP)
-MINIKUBE_IP=$(minikube ip)
-# URL de acesso: http://$MINIKUBE_IP:30080/docs
-```
-
-## 🚀 Endpoints da API Gateway (Stub)
-
-O servidor Stub (FastAPI) expõe os seguintes endpoints HTTP, roteando as chamadas para os respectivos serviços gRPC:
-
-Método |           Caminho            | Descrição                      |            Rota gRPC
-:-----:|:----------------------------:|:-------------------------------|:------------------------------:
- POST  |           /login/            | Realiza o login do cliente.    |       ClientService.Login
- POST  |          /clients/           | Cria um novo cliente.          |   ClientService.CreateClient
-  GET  |          /clients/           | Lista todos os clientes.       |    ClientService.ListClients
-  GET  |        /clients/{id}         | Busca um cliente por ID.       |     ClientService.GetClient
- PATCH |        /clients/{id}         | Atualiza dados de um cliente.  |   ClientService.UpdateClient
-DELETE |        /clients/{id}         | Apaga um cliente.              |   ClientService.DeleteClient
- POST  |          /accounts/          | Cria uma nova conta bancária.  |  AccountService.CreateAccount
-  GET  |          /accounts/          | Lista todas as contas.         |   AccountService.ListAccounts
-  GET  |        /accounts/{id}        | Busca uma conta por ID.        |    AccountService.GetAccount
- PATCH |        /accounts/{id}        | Atualiza dados de uma conta.   |  AccountService.UpdateAccount
-DELETE |        /accounts/{id}        | Apaga uma conta.               |  AccountService.DeleteAccount
- POST  |        /transactions/        | Envia dinheiro entre contas.   |    AccountService.SendMoney
-  GET  | /accounts/{id}/transactions/ | Lista transações de uma conta. | AccountService.ListTransactions
+---
 
 
-## 📈 Análise de Performance e Escalabilidade (gRPC vs. REST/Fastify)
+## Vídeo 
 
-Para determinar a arquitetura mais eficiente, foram realizadas duas fases de testes de carga utilizando a ferramenta k6, comparando a implementação original em gRPC (serialização Protobuf) com a implementação alternativa em REST (Node.js/Fastify, serialização JSON).
+[Vídeo de apresentação do T3](https://www.youtube.com/watch?v=OAVnJvgpjgg)
 
-O cenário de teste simula um ciclo completo de uso do sistema: Criação de Cliente, Criação de Conta, Login, Transação de Saldo e Exclusão (CRUD completo) para cada usuário virtual (VU).
+## Relatório
 
-### Fase 1: Baseline (5 VUs, 60 Segundos)
+[Relatório do T3](./Relat%C3%B3rio%20T3%20-%20Kubernetes%2C%20gRPC%20e%20Monitoramento.pdf)
 
-Esta fase estabeleceu a linha de base do desempenho com carga leve para medir o overhead intrínseco de cada protocolo.
 
-<center>
+## Apresentação
 
-Tabela 1: Resultados dos Testes Realizados da Fase 1
+[Apresentação T3 (slides)](./Monitoramento%20e%20Observabilidade%20em%20Cluster%20K8S.pdf)
 
-| Métrica HTTP | gRPC | REST/Fastify | Vencedor |
-| :--- | :--- | :--- | :--- |
-| Latência Média (avg) | 22.66ms | 26.33ms | gRPC |
-| Latência P95 | 56.06ms | 61.15ms | gRPC |
-| Throughput (reqs/s) | 40.42/s | 39.24/s | gRPC |
-| Total de Requisições | 2474 | 2404 | gRPC |
-| Taxa de Erro | 0.00% | 0.00% | Empate |
+## Visão geral da aplicação
 
-</center>
+A aplicação é um sistema bancário simples, dividido em microserviços:
 
-### Fase 2: Teste de Estresse e Escala (10 VUs, 2 Minutos)
+- **Client Server (Node.js + gRPC)**  
+  CRUD de clientes e autenticação (login).
 
-Esta fase aumentou a carga para 10 VUs por 2 minutos, forçando o sistema a operar sob maior estresse de concorrência e estabilidade.
+- **Account Server (Node.js + gRPC)**  
+  CRUD de contas, envio de dinheiro e listagem de transações.  
+  Chama o `ClientService` via gRPC para validar o cliente antes de criar contas.
 
-<center>
+- **Stub (API Gateway – Python + FastAPI)**  
+  Expõe endpoints **HTTP/REST** para o “mundo externo” e traduz as chamadas para gRPC, roteando para `client` e `account`.
 
-Tabela 2: Resultados dos Testes Realizados da Fase 2 (10 VUs, 2 Minutos)
+- **Postgres**  
+  Usado pelos serviços `client` e `account` via Prisma ORM (cada um com seu schema).
 
-| Métrica HTTP | gRPC | REST/Fastify | Vencedor |
-| :--- | :--- | :--- | :--- |
-| Latência Média (avg) | 14.75 ms | 14.83 ms | gRPC |
-| Latência Mediana (med) | 10.27 ms | 10.7 ms | gRPC |
-| Latência P95 | 35.4 ms | 39.65 ms | gRPC |
-| Throughput (req/s) | 87.79/s | 92.20/s | REST/Fastify |
-| Total de Requisições | 10524 | 10484 | gRPC |
-| Taxa de Erro | 0.00% | 0.00% | Empate |
+Arquivos `.proto` em `protos/` definem os serviços `ClientService` e `AccountService`, a partir dos quais são gerados os stubs gRPC usados pelos servidores e pelo stub.
 
-</center>
 
-### Conclusão
+## Objetivo do trabalho
 
-- Na carga inicial, o gRPC demonstrou latência e throughput superiores, confirmando a eficiência da serialização binária do Protobuf.
-- Na fase 2, ambos os sistemas demonstraram excelente escalabilidade , mantendo 0% de taxa de erro sob carga triplicada e melhorando as métricas de latência em comparação à Fase 1 (ex: Latência Média do gRPC caiu de 22.66ms para 14.75ms)
-- O gRPC manteve sua superioridade na métrica crítica de P95:
-    - O gRPC foi concluído em 35.4ms no worst-case scenario (95% das requisições), sendo 10.5% mais rápido que o REST/Fastify (39.65ms).
-- O REST/Fastify alcançou um throughput marginalmente maior (92.20 requisições/s vs 87.79 requisições/s), indicando que sua arquitetura pode processar ligeiramente mais requisições por segundo sob saturação. No entanto, essa pequena vantagem de vazão vem acompanhada de uma latência de P95 mais alta
+O foco do trabalho não foi desenvolver a aplicação em si, mas **observar o comportamento de um cluster Kubernetes** executando essa aplicação sob carga, explorando:
+
+- Efeito de **réplicas de microserviços** (`stub`, `client`, `account`).
+- Efeito de **diferentes números de workers** no cluster.
+- Uso de **autoscaling (HPA)**.
+- Métricas de **throughput**, **latência**, **falhas** e **uso de recursos**.
+
+
+## Cluster Kubernetes
+
+O cluster foi criado com **kind (Kubernetes in Docker)** em um único host, simulando um ambiente multinode:
+
+- 1 nó **control-plane**  
+- 2 ou 4 nós **worker** (dependendo do cenário)
+
+Os manifests da pasta `k8s/` definem:
+
+- Deployments e Services para `client`, `account`, `stub` e `postgres`
+- Namespace e secrets do banco
+- (Em alguns cenários) Horizontal Pod Autoscaler (HPA) para `stub`, `client` e `account`
+
+
+## Testes de carga com k6
+
+Os testes de carga foram feitos com a ferramenta **k6**, usando scripts em `tests/` (por exemplo, `k6-heavy.js`, `k6-autoscaling.js`).
+
+Todos os cenários executam, com variações de VUs e duração, um **fluxo completo**:
+
+1. Criar cliente  
+2. Criar conta  
+3. Login  
+4. Fazer transações  
+5. Consultar transações  
+6. Excluir conta e cliente
+
+### Cenários avaliados
+
+- **Baseline – 2 workers, 1 réplica por serviço**  
+  Referência funcional, sem otimizações de escalonamento.
+
+- **Réplica Stub – 2 workers, 3x `stub`**  
+  Escala só a borda HTTP (API Gateway) para ver se o `stub` é gargalo.
+
+- **Réplicas Serviços – 2 workers, 3x `stub`/`client`/`account`**  
+  Escala toda a camada de aplicação, mantendo o Postgres fixo.
+
+- **4 Workers – 4 workers, 1 réplica por serviço**  
+  Aumenta só o número de nós do cluster, sem mudar réplicas.
+
+- **4 Workers + 3 Réplicas – 4 workers, 3x `stub`/`client`/`account`**  
+  Combina mais nós + mais réplicas para buscar maior throughput.
+
+- **Autoscaling (HPA) – 2 workers, HPA em `stub`/`client`/`account`**  
+  Usa Horizontal Pod Autoscaler para variar automaticamente o número de réplicas de acordo com uso de CPU.
+
+Para cada cenário foram coletados principalmente:
+
+- **Throughput** (`http_reqs/s`)  
+- **Latência média** e **p95**  
+- **Taxa de falhas HTTP** (`http_req_failed`)  
+- **Falhas de negócio** (`checks_failed`)
+
+
+## Monitoramento com Prometheus
+
+### Papel do Prometheus
+
+O **Prometheus** foi usado para:
+
+- Coletar métricas do `stub-service` (ponto de entrada HTTP) e dos containers no cluster.
+- Calcular, em tempo real:
+  - **Throughput** total e por endpoint
+  - **Latência média** e **latência P95**
+  - **Uso de CPU e memória** dos pods do stub
+
+Os gráficos e queries foram usados para correlacionar o que o k6 reportava com o comportamento interno do cluster (por exemplo, quando a CPU saturava, quando o P95 explodia, etc.).
+
+### Exposição do endpoint `/metrics`
+
+Para integrar a aplicação com o Prometheus:
+
+1. O `stub-service` foi instrumentado com uma biblioteca de métricas HTTP (expondo um endpoint **`/metrics`**).  
+2. Um `Service` Kubernetes (`stub-service`) expõe esse endpoint dentro do cluster.  
+3. No Prometheus, o `scrape_config` inclui o serviço do stub como target, permitindo fazer *scrape* periódico de `/metrics`.
+
+### Principais queries usadas
+
+Alguns exemplos de consultas (queries) utilizadas na UI do Prometheus:
+
+- **Throughput total (req/s):**
+
+  ```promql
+  sum(
+    rate(http_requests_total{
+      service="stub-service"
+    }[15m])
+  )
+  ```
+
+- **Throughput por endpoint:**
+
+    ```promql
+    sum by (endpoint)(
+    rate(http_requests_total{
+        service="stub-service"
+    }[15m])
+    )
+    ```
+
+- **Latência média**:
+
+    ```promql
+    sum(
+    rate(http_request_duration_seconds_sum{
+        service="stub-service"
+    }[15m])
+    )
+    /
+    sum(
+    rate(http_request_duration_seconds_count{
+        service="stub-service"
+    }[15m])
+    )
+    ```
+
+- **Latência P95**:
+
+    ```promql
+    histogram_quantile(
+    0.95,
+    sum by (le)(
+        rate(http_request_duration_seconds_bucket{
+        service="stub-service"
+        }[15m])
+    )
+    )
+    ```
+
+- **CPU**:
+
+    ```promql
+    sum by (pod)(
+    rate(container_cpu_usage_seconds_total{
+        pod=~"stub-.*"
+    }[5m])
+    )
+    ```
+
+- **Memória**:
+
+    ```promql
+    sum by (pod)(
+    container_memory_usage_bytes{
+        pod=~"stub-.*"
+    }
+    )
+    ```
+
+## Resumo
+
+Em conjunto, a aplicação gRPC, o cluster Kubernetes (via kind), o k6 e o Prometheus formam um pequeno laboratório para estudar:
+
+- Como diferentes configurações de réplicas, workers e autoscaling afetam throughput, latência e erros.
+- Como a observabilidade ajuda a identificar gargalos reais (como o banco de dados ou a saturação de CPU/memória) em um ambiente distribuído.
+
+Este repositório concentra os manifests Kubernetes, scripts de teste k6, arquivos .proto e código dos microserviços usados nesses experimentos.

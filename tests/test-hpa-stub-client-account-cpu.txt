@@ -1,0 +1,1657 @@
+
+         /\      Grafana   /‾‾/
+    /\  /  \     |\  __   /  /
+   /  \/    \    | |/ /  /   ‾‾\
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/
+
+     execution: local
+        script: k6-autoscaling.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 200 max VUs, 11m30s max duration (incl. graceful stop):
+              * default: Up to 200 looping VUs for 11m0s over 6 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+INFO[0000] Setting up static recipient with key: static_recipient_key  source=console
+WARN[0206] The test has generated metrics with 100023 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details.  component=metrics-engine-ingester
+WARN[0322] The test has generated metrics with 200022 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details.  component=metrics-engine-ingester
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/accounts/\": EOF"
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create account body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:97:61(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:95:8(116))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/accounts/\": EOF"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create account body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:97:61(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:95:8(116))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/accounts/\": EOF"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create account body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:97:61(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:95:8(116))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/accounts/\": EOF"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/accounts/\": EOF"
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/accounts/\": EOF"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create account body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:97:61(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:95:8(116))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create account body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:97:61(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:95:8(116))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/accounts/\": EOF"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create account body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:97:61(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:95:8(116))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/accounts/\": EOF"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create account body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:97:61(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:95:8(116))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/accounts/\": EOF"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create account body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:97:61(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:95:8(116))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create account body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:97:61(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:95:8(116))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Get \"http://localhost:30080/accounts/18351/transactions/\": read tcp 127.0.0.1:49744->127.0.0.1:30080: read: connection reset by peer"
+WARN[0453] Request Failed                                error="Get \"http://localhost:30080/accounts/18567\": read tcp 127.0.0.1:49760->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat get account body has correct id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:106:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:103:8(143))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Get \"http://localhost:30080/accounts/18548\": read tcp 127.0.0.1:49782->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat get account body has correct id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:106:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:103:8(143))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Get \"http://localhost:30080/accounts/18371/transactions/\": read tcp 127.0.0.1:49810->127.0.0.1:30080: read: connection reset by peer"
+WARN[0453] Request Failed                                error="Get \"http://localhost:30080/accounts/18370/transactions/\": read tcp 127.0.0.1:49816->127.0.0.1:30080: read: connection reset by peer"
+WARN[0453] Request Failed                                error="Get \"http://localhost:30080/accounts/18537\": read tcp 127.0.0.1:49822->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat get account body has correct id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:106:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:103:8(143))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Get \"http://localhost:30080/accounts/18369/transactions/\": read tcp 127.0.0.1:49826->127.0.0.1:30080: read: connection reset by peer"
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:49828->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:49876->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Get \"http://localhost:30080/accounts/18541\": read tcp 127.0.0.1:50078->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat get account body has correct id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:106:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:103:8(143))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Get \"http://localhost:30080/clients/18725\": read tcp 127.0.0.1:50110->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat get client body has correct id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:81:65(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:79:8(76))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Get \"http://localhost:30080/accounts/18527\": read tcp 127.0.0.1:50120->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat get account body has correct id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:106:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:103:8(143))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50122->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Get \"http://localhost:30080/accounts/18308/transactions/\": read tcp 127.0.0.1:50196->127.0.0.1:30080: read: connection reset by peer"
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50244->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Get \"http://localhost:30080/accounts/18590\": read tcp 127.0.0.1:50252->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat get account body has correct id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:106:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:103:8(143))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Get \"http://localhost:30080/accounts/18340/transactions/\": read tcp 127.0.0.1:50284->127.0.0.1:30080: read: connection reset by peer"
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50348->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50376->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50392->127.0.0.1:30080: read: connection reset by peer"
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50396->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Delete \"http://localhost:30080/accounts/18370\": read tcp 127.0.0.1:50458->127.0.0.1:30080: read: connection reset by peer"
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50464->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50484->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50490->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50494->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Delete \"http://localhost:30080/accounts/18308\": read tcp 127.0.0.1:50528->127.0.0.1:30080: read: connection reset by peer"
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50540->127.0.0.1:30080: read: connection reset by peer"
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50544->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50566->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50580->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Delete \"http://localhost:30080/clients/18462\": read tcp 127.0.0.1:50604->127.0.0.1:30080: read: connection reset by peer"
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50620->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50668->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50684->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50696->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50730->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0453] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50746->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0453] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": EOF"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": EOF"
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/accounts/18530\": EOF"
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/clients/18731\": EOF"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat get account body has correct id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:106:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:103:8(143))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Delete \"http://localhost:30080/accounts/18351\": EOF"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": EOF"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat get client body has correct id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:81:65(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:79:8(76))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/accounts/18561\": EOF"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat get account body has correct id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:106:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:103:8(143))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/accounts/18367/transactions/\": EOF"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": EOF"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": EOF"
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/accounts/18346/transactions/\": EOF"
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/accounts/18325/transactions/\": EOF"
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/accounts/18280/transactions/\": EOF"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/accounts/\": EOF"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": EOF"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create account body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:97:61(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:95:8(116))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": EOF"
+WARN[0457] Request Failed                                error="Delete \"http://localhost:30080/accounts/18369\": EOF"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": EOF"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": EOF"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/accounts/18557\": EOF"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": EOF"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat get account body has correct id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:106:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:103:8(143))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": EOF"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": EOF"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/clients/18729\": EOF"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat get client body has correct id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:81:65(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:79:8(76))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+WARN[0457] Request Failed                                error="Delete \"http://localhost:30080/accounts/18340\": EOF"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": EOF"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": EOF"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": EOF"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/accounts/\": EOF"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create account body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:97:61(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:95:8(116))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:49286->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/accounts/\": EOF"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create account body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:97:61(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:95:8(116))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:49300->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/clients/18743\": read tcp 127.0.0.1:49302->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat get client body has correct id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:81:65(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:79:8(76))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Delete \"http://localhost:30080/clients/18459\": read tcp 127.0.0.1:49280->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Delete \"http://localhost:30080/accounts/18367\": read tcp 127.0.0.1:49324->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:49336->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:49390->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Delete \"http://localhost:30080/clients/18464\": read tcp 127.0.0.1:49394->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:49416->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:49468->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/clients/18742\": read tcp 127.0.0.1:49478->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat get client body has correct id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:81:65(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:79:8(76))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/accounts/18474/transactions/\": read tcp 127.0.0.1:49500->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:49516->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/accounts/18426/transactions/\": read tcp 127.0.0.1:49564->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/accounts/18595\": read tcp 127.0.0.1:49580->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat get account body has correct id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:106:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:103:8(143))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:49604->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/accounts/18610\": read tcp 127.0.0.1:49644->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat get account body has correct id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:106:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:103:8(143))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:49672->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/accounts/18463/transactions/\": read tcp 127.0.0.1:49656->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:49686->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/accounts/18604\": read tcp 127.0.0.1:49696->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat get account body has correct id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:106:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:103:8(143))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:49704->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/accounts/18462/transactions/\": read tcp 127.0.0.1:49708->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:49744->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/accounts/18597\": read tcp 127.0.0.1:49724->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/accounts/18437/transactions/\": read tcp 127.0.0.1:49762->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat get account body has correct id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:106:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:103:8(143))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/accounts/18603\": read tcp 127.0.0.1:49776->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:49792->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat get account body has correct id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:106:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:103:8(143))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/accounts/18423/transactions/\": read tcp 127.0.0.1:49796->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/accounts/18478/transactions/\": read tcp 127.0.0.1:49812->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/accounts/18493/transactions/\": read tcp 127.0.0.1:49818->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/accounts/18599\": read tcp 127.0.0.1:49834->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat get account body has correct id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:106:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:103:8(143))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/accounts/18416/transactions/\": read tcp 127.0.0.1:49888->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/accounts/18440/transactions/\": read tcp 127.0.0.1:49904->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/accounts/18593\": read tcp 127.0.0.1:49916->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat get account body has correct id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:106:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:103:8(143))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/accounts/18485/transactions/\": read tcp 127.0.0.1:49920->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/accounts/18475/transactions/\": read tcp 127.0.0.1:49948->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/accounts/18492/transactions/\": read tcp 127.0.0.1:49972->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/accounts/18613\": read tcp 127.0.0.1:49988->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat get account body has correct id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:106:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:103:8(143))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Get \"http://localhost:30080/accounts/18600\": read tcp 127.0.0.1:50006->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat get account body has correct id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:106:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:103:8(143))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50052->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50060->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50088->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50122->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50130->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50132->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50142->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Delete \"http://localhost:30080/clients/18463\": read tcp 127.0.0.1:50162->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50188->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50204->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50230->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50256->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50284->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Delete \"http://localhost:30080/accounts/18463\": read tcp 127.0.0.1:50306->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50324->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50332->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Delete \"http://localhost:30080/accounts/18437\": read tcp 127.0.0.1:50350->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Delete \"http://localhost:30080/accounts/18478\": read tcp 127.0.0.1:50398->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Delete \"http://localhost:30080/accounts/18416\": read tcp 127.0.0.1:50424->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Delete \"http://localhost:30080/accounts/18440\": read tcp 127.0.0.1:50432->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Delete \"http://localhost:30080/accounts/18492\": read tcp 127.0.0.1:50480->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50512->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50524->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50532->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50540->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50550->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50580->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50590->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50592->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50658->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Delete \"http://localhost:30080/clients/18539\": read tcp 127.0.0.1:50662->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Delete \"http://localhost:30080/clients/18529\": read tcp 127.0.0.1:50674->127.0.0.1:30080: read: connection reset by peer"
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50712->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50746->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50754->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50770->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50796->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50806->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50814->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50822->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50830->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50832->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50852->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50858->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0457] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:50882->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0457] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/18953\": EOF"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/18942\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/18956\": EOF"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/clients/19046\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/18958\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/clients/19033\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/18945\": EOF"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/18936\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/18947\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/18937\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/18948\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/18964\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/clients/19092\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Get \"http://localhost:30080/accounts/19010/transactions/\": read tcp 127.0.0.1:34788->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/18944\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": EOF"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/18950\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/clients/19091\": EOF"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/18946\": EOF"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/clients/19078\": EOF"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/18934\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/18965\": EOF"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/18968\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/18951\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/18943\": EOF"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/18961\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/18966\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/18969\": EOF"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/clients/19083\": EOF"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/clients/19057\": EOF"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/18938\": EOF"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/clients/19032\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/clients/19042\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/18941\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/18933\": EOF"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/clients/19023\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:34778->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Get \"http://localhost:30080/accounts/18998/transactions/\": read tcp 127.0.0.1:34762->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/accounts/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/clients/19051\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/login/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat login body has id and account (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:122:19(8))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:118:8(182))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/clients/19035\": EOF"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/clients/19045\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/clients/19047\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/18935\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:34754->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Get \"http://localhost:30080/accounts/19020/transactions/\": read tcp 127.0.0.1:34848->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Get \"http://localhost:30080/accounts/18994/transactions/\": read tcp 127.0.0.1:34876->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/clients/19037\": EOF"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/transactions/\": EOF"
+WARN[0523] Request Failed                                error="Get \"http://localhost:30080/accounts/19022/transactions/\": read tcp 127.0.0.1:34904->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create transaction body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:139:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:136:8(217))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Get \"http://localhost:30080/accounts/18990/transactions/\": read tcp 127.0.0.1:34862->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Get \"http://localhost:30080/accounts/18982/transactions/\": read tcp 127.0.0.1:34908->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create account body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:97:61(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:95:8(116))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Get \"http://localhost:30080/accounts/19025/transactions/\": read tcp 127.0.0.1:34930->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:34960->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:34978->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Get \"http://localhost:30080/accounts/18992/transactions/\": read tcp 127.0.0.1:35008->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Get \"http://localhost:30080/accounts/19017/transactions/\": read tcp 127.0.0.1:35024->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Get \"http://localhost:30080/accounts/19008/transactions/\": read tcp 127.0.0.1:35064->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Get \"http://localhost:30080/accounts/18970/transactions/\": read tcp 127.0.0.1:35164->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Get \"http://localhost:30080/accounts/19102\": read tcp 127.0.0.1:35176->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat get account body has correct id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:106:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:103:8(143))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Get \"http://localhost:30080/accounts/19012/transactions/\": read tcp 127.0.0.1:35188->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Get \"http://localhost:30080/accounts/18987/transactions/\": read tcp 127.0.0.1:35200->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Get \"http://localhost:30080/accounts/19018/transactions/\": read tcp 127.0.0.1:35210->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Get \"http://localhost:30080/accounts/18960/transactions/\": read tcp 127.0.0.1:35222->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Get \"http://localhost:30080/accounts/18974/transactions/\": read tcp 127.0.0.1:35282->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/clients/19058\": read tcp 127.0.0.1:35302->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:35378->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:35454->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:35440->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/clients/19056\": read tcp 127.0.0.1:35470->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/clients/19063\": read tcp 127.0.0.1:35490->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Get \"http://localhost:30080/accounts/19023/transactions/\": read tcp 127.0.0.1:35538->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:35544->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Get \"http://localhost:30080/accounts/18976/transactions/\": read tcp 127.0.0.1:35578->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:35588->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/clients/19080\": read tcp 127.0.0.1:35556->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Get \"http://localhost:30080/accounts/19007/transactions/\": read tcp 127.0.0.1:35568->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Get \"http://localhost:30080/accounts/18977/transactions/\": read tcp 127.0.0.1:35594->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:35604->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Get \"http://localhost:30080/accounts/18957/transactions/\": read tcp 127.0.0.1:35624->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Get \"http://localhost:30080/accounts/19029/transactions/\": read tcp 127.0.0.1:35626->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Get \"http://localhost:30080/accounts/19101\": read tcp 127.0.0.1:35694->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat get account body has correct id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:106:26(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:103:8(143))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:35802->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/clients/19073\": read tcp 127.0.0.1:35814->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:35828->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/clients/19098\": read tcp 127.0.0.1:35870->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/clients/19060\": read tcp 127.0.0.1:35910->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/clients/19052\": read tcp 127.0.0.1:35938->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:35972->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:35996->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36036->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/18998\": read tcp 127.0.0.1:36064->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36094->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36108->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36130->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36180->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/18982\": read tcp 127.0.0.1:36244->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36252->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/19008\": read tcp 127.0.0.1:36282->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/18974\": read tcp 127.0.0.1:36338->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36352->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36378->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/18976\": read tcp 127.0.0.1:36392->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36416->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/accounts/19029\": read tcp 127.0.0.1:36468->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36498->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36540->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36548->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36552->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36602->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36616->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Delete \"http://localhost:30080/clients/19149\": read tcp 127.0.0.1:36644->127.0.0.1:30080: read: connection reset by peer"
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36648->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36652->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36656->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36684->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36692->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0523] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36720->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0523] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0524] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36782->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0524] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0524] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36798->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0524] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0524] Request Failed                                error="Post \"http://localhost:30080/clients/\": EOF"
+ERRO[0524] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0524] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36840->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0524] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0524] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36886->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0524] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0524] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36892->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0524] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0524] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36944->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0524] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0524] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36958->127.0.0.1:30080: read: connection reset by peer"
+WARN[0524] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36972->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0524] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+ERRO[0524] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0524] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36980->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0524] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0524] Request Failed                                error="Post \"http://localhost:30080/clients/\": read tcp 127.0.0.1:36986->127.0.0.1:30080: read: connection reset by peer"
+ERRO[0524] TypeError: Cannot read property 'id' of undefined
+rupted iat create client body has id (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:73:60(6))
+        at go.k6.io/k6/internal/js/modules/k6.(*K6).Check-fm (native)
+        at default (file:///home/lucasmartins/pspd/t3-cluster/tests/k6-autoscaling.js:71:8(49))  executor=ramping-vus scenario=default source=stacktrace
+WARN[0599] The test has generated metrics with 400020 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details.  component=metrics-engine-ingester
+INFO[0666] Starting teardown: Deleting static recipient data...  source=console
+INFO[0669] Successfully deleted recipient account ID: 12697  source=console
+INFO[0672] Successfully deleted recipient client ID: 12728  source=console
+
+
+  █ TOTAL RESULTS
+
+    checks_total.......: 135283 201.033281/s
+    checks_succeeded...: 98.47% 133217 out of 135283
+    checks_failed......: 1.52%  2066 out of 135283
+
+    ✗ create client status is 200
+      ↳  97% — ✓ 8419 / ✗ 212
+    ✗ create client body has id
+      ↳  97% — ✓ 8419 / ✗ 212
+    ✗ get client status is 200
+      ↳  99% — ✓ 8414 / ✗ 78
+    ✗ get client body has correct id
+      ↳  99% — ✓ 8487 / ✗ 5
+    ✗ create account status is 200
+      ↳  98% — ✓ 8382 / ✗ 105
+    ✗ create account body has id
+      ↳  98% — ✓ 8382 / ✗ 105
+    ✗ get account status is 200
+      ↳  98% — ✓ 8351 / ✗ 123
+    ✗ get account body has correct id
+      ↳  99% — ✓ 8443 / ✗ 31
+    ✗ login status is 200
+      ↳  98% — ✓ 8359 / ✗ 95
+    ✗ login body has id and account
+      ↳  98% — ✓ 8359 / ✗ 95
+    ✗ create transaction status is 200
+      ↳  97% — ✓ 8221 / ✗ 203
+    ✗ create transaction body has id
+      ↳  97% — ✓ 8221 / ✗ 203
+    ✗ get transactions status is 200
+      ↳  97% — ✓ 8166 / ✗ 174
+    ✗ get transactions body is array
+      ↳  97% — ✓ 8166 / ✗ 174
+    ✗ delete account status is 200
+      ↳  98% — ✓ 8192 / ✗ 148
+    ✗ delete client status is 200
+      ↳  98% — ✓ 8236 / ✗ 103
+
+    HTTP
+    http_req_duration..............: avg=770.23ms min=109.36µs med=393.45ms max=24.96s p(90)=1.79s  p(95)=2.92s
+      { expected_response:true }...: avg=758.75ms min=885.24µs med=394.69ms max=24.96s p(90)=1.79s  p(95)=2.89s
+    http_req_failed................: 1.47% 1241 out of 84325
+    http_reqs......................: 84325 125.30866/s
+
+    EXECUTION
+    iteration_duration.............: avg=7.61s    min=809.91µs med=5.99s    max=40.02s p(90)=15.01s p(95)=25.92s
+    iterations.....................: 8630  12.824355/s
+    vus............................: 0     min=0             max=200
+    vus_max........................: 200   min=200           max=200
+
+    NETWORK
+    data_received..................: 17 MB 25 kB/s
+    data_sent......................: 12 MB 17 kB/s
+
+
+
+
+running (11m12.9s), 000/200 VUs, 8630 complete and 1 interrupted iterations
+default ✓ [==========================] 000/200 VUs  11m0s

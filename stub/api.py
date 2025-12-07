@@ -4,6 +4,9 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from starlette.middleware.cors import CORSMiddleware
 
+from fastapi import Request
+from starlette.responses import Response
+
 import grpc
 from client_pb2 import ClientRequest, CreateClientRequest, UpdateClientRequest, LoginRequest
 from client_pb2_grpc import ClientServiceStub
@@ -11,6 +14,13 @@ from account_pb2 import AccountRequest, CreateAccountRequest, UpdateAccountReque
 from account_pb2_grpc import AccountServiceStub
 import google.protobuf.empty_pb2 as empty
 import os
+
+import time
+from metrics import (
+    HTTP_REQUESTS_TOTAL,
+    HTTP_REQUEST_DURATION_SECONDS,
+    start_metrics_server,
+)
 
 CLIENT_GRPC_CHANNEL = None
 CLIENT_STUB = None
@@ -89,6 +99,9 @@ async def lifespan(app: FastAPI):
     and closes it when the app shuts down (shutdown).
     """
     global CLIENT_GRPC_CHANNEL, CLIENT_STUB, ACCOUNT_GRPC_CHANNEL, ACCOUNT_STUB
+
+    start_metrics_server(8001)
+
     print(f"Connecting to client gRPC server at {CLIENT_HOST}:{CLIENT_PORT}...")
     print(f"Connecting to account gRPC server at {ACCOUNT_HOST}:{ACCOUNT_PORT}...")
 
@@ -113,6 +126,33 @@ async def lifespan(app: FastAPI):
         print("account gRPC connection closed.")
 
 app = FastAPI(lifespan=lifespan)
+
+
+@app.middleware("http")
+async def metrics_middleware(request: Request, call_next):
+    start_time = time.time()
+
+    response: Response = await call_next(request)
+
+    duration = time.time() - start_time
+    endpoint = request.url.path
+    method = request.method
+    status_code = response.status_code
+
+    # Atualiza métricas
+    HTTP_REQUESTS_TOTAL.labels(
+        method=method,
+        endpoint=endpoint,
+        status=status_code,
+    ).inc()
+
+    HTTP_REQUEST_DURATION_SECONDS.labels(
+        method=method,
+        endpoint=endpoint,
+    ).observe(duration)
+
+    return response
+
 
 app.add_middleware(
     CORSMiddleware,
@@ -166,7 +206,7 @@ def get_client(id: int):
         return response
     except grpc.RpcError as e:
         handle_grpc_error(e)
-    
+
 @app.post("/clients/", response_model=ClientModel)
 def create_client(client: CreateClientModel):
     """Cria um novo cliente via gRPC"""
@@ -178,7 +218,7 @@ def create_client(client: CreateClientModel):
         return response
     except grpc.RpcError as e:
         handle_grpc_error(e)
-    
+
 @app.patch("/clients/{id}", response_model=ClientModel)
 def patch_client(id: int, client: CreateClientModel):
     """Atualiza um cliente via gRPC"""
@@ -225,7 +265,7 @@ def get_account(id: int):
         return response
     except grpc.RpcError as e:
         handle_grpc_error(e)
-    
+
 @app.post("/accounts/", response_model=AccountModel)
 def create_account(account: CreateAccountModel):
     """Cria uma nova conta via gRPC"""
@@ -237,7 +277,7 @@ def create_account(account: CreateAccountModel):
         return response
     except grpc.RpcError as e:
         handle_grpc_error(e)
-    
+
 @app.patch("/accounts/{id}", response_model=AccountModel)
 def patch_account(id: int, account: CreateAccountModel):
     """Atualiza uma conta via gRPC"""
@@ -249,7 +289,7 @@ def patch_account(id: int, account: CreateAccountModel):
         return response
     except grpc.RpcError as e:
         handle_grpc_error(e)
-    
+
 @app.delete("/accounts/{id}")
 def delete_account(id: int):
     """Apaga uma conta via gRPC"""
@@ -261,7 +301,7 @@ def delete_account(id: int):
         return {"detail": "Account deleted successfully."}
     except grpc.RpcError as e:
         handle_grpc_error(e)
-    
+
 @app.post("/transactions/", response_model=TransactionModel)
 def create_transaction(transaction: CreateTransactionModel):
     """Cria uma nova transação via gRPC"""
@@ -273,7 +313,7 @@ def create_transaction(transaction: CreateTransactionModel):
         return response
     except grpc.RpcError as e:
         handle_grpc_error(e)
-        
+
 @app.get("/accounts/{id}/transactions/", response_model=List[TransactionModel])
 def get_transactions_by_account(id: int):
     """Busca todas as transações de um cliente"""

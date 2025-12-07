@@ -1,0 +1,81 @@
+
+         /\      Grafana   /‾‾/
+    /\  /  \     |\  __   /  /
+   /  \/    \    | |/ /  /   ‾‾\
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/
+
+     execution: local
+        script: k6-autoscaling.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 200 max VUs, 11m30s max duration (incl. graceful stop):
+              * default: Up to 200 looping VUs for 11m0s over 6 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+INFO[0000] Setting up static recipient with key: static_recipient_key  source=console
+WARN[0134] The test has generated metrics with 100086 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details.  component=metrics-engine-ingester
+WARN[0218] The test has generated metrics with 200022 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details.  component=metrics-engine-ingester
+WARN[0398] The test has generated metrics with 400065 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details.  component=metrics-engine-ingester
+INFO[0666] Starting teardown: Deleting static recipient data...  source=console
+INFO[0666] Successfully deleted recipient account ID: 1  source=console
+INFO[0666] Successfully deleted recipient client ID: 1   source=console
+
+
+  █ TOTAL RESULTS
+
+    checks_total.......: 203616 304.943402/s
+    checks_succeeded...: 99.80% 203220 out of 203616
+    checks_failed......: 0.19%  396 out of 203616
+
+    ✗ create client status is 200
+      ↳  99% — ✓ 12695 / ✗ 31
+    ✗ create client body has id
+      ↳  99% — ✓ 12695 / ✗ 31
+    ✗ get client status is 200
+      ↳  99% — ✓ 12695 / ✗ 31
+    ✓ get client body has correct id
+    ✗ create account status is 200
+      ↳  99% — ✓ 12695 / ✗ 31
+    ✗ create account body has id
+      ↳  99% — ✓ 12695 / ✗ 31
+    ✗ get account status is 200
+      ↳  99% — ✓ 12695 / ✗ 31
+    ✓ get account body has correct id
+    ✗ login status is 200
+      ↳  99% — ✓ 12714 / ✗ 12
+    ✗ login body has id and account
+      ↳  99% — ✓ 12714 / ✗ 12
+    ✗ create transaction status is 200
+      ↳  99% — ✓ 12695 / ✗ 31
+    ✗ create transaction body has id
+      ↳  99% — ✓ 12695 / ✗ 31
+    ✗ get transactions status is 200
+      ↳  99% — ✓ 12695 / ✗ 31
+    ✗ get transactions body is array
+      ↳  99% — ✓ 12695 / ✗ 31
+    ✗ delete account status is 200
+      ↳  99% — ✓ 12695 / ✗ 31
+    ✗ delete client status is 200
+      ↳  99% — ✓ 12695 / ✗ 31
+
+    HTTP
+    http_req_duration..............: avg=505.7ms  min=41.67µs med=297.52ms max=13.61s p(90)=1.11s  p(95)=1.71s
+      { expected_response:true }...: avg=506.26ms min=41.67µs med=297.67ms max=13.61s p(90)=1.11s  p(95)=1.71s
+    http_req_failed................: 0.20%  260 out of 12726
+    http_reqs......................: 127264 190.595617/s
+
+    EXECUTION
+    iteration_duration.............: avg=5.12s    min=174.2ms med=4.73s    max=24s    p(90)=10.18s p(95)=12.19s
+    iterations.....................: 12726  19.058963/s
+    vus............................: 1      min=0             max=200
+    vus_max........................: 200    min=200           max=200
+
+    NETWORK
+    data_received..................: 25 MB  38 kB/s
+    data_sent......................: 17 MB  26 kB/s
+
+
+
+
+running (11m07.7s), 000/200 VUs, 12726 complete and 0 interrupted iterations
+default ✓ [=============================] 000/200 VUs  11m0s

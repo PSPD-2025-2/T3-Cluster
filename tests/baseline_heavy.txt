@@ -1,0 +1,61 @@
+ execution: local
+        script: k6_heavy.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 100 max VUs, 10m30s max duration (incl. graceful stop):
+              * default: 100 looping VUs for 10m0s (gracefulStop: 30s)
+
+INFO[0000] Setting up static recipient with key: static_recipient_key  source=console
+WARN[0043] The test has generated metrics with 100005 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details.  component=metrics-engine-ingester
+WARN[0094] The test has generated metrics with 200040 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details.  component=metrics-engine-ingester
+WARN[0198] The test has generated metrics with 400182 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details.  component=metrics-engine-ingester
+WARN[0441] The test has generated metrics with 800205 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details.  component=metrics-engine-ingester
+INFO[0601] Starting teardown: Deleting static recipient data...  source=console
+INFO[0601] Successfully deleted recipient account ID: 1249  source=console
+INFO[0601] Successfully deleted recipient client ID: 1274  source=console
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 290016  481.977854/s
+    checks_succeeded...: 100.00% 290016 out of 290016
+    checks_failed......: 0.00%   0 out of 290016
+
+    ✓ create client status is 200
+    ✓ create client body has id
+    ✓ get client status is 200
+    ✓ get client body has correct id
+    ✓ create account status is 200
+    ✓ create account body has id
+    ✓ get account status is 200
+    ✓ get account body has correct id
+    ✓ login status is 200
+    ✓ login body has id and account
+    ✓ create transaction status is 200
+    ✓ create transaction body has id
+    ✓ get transactions status is 200
+    ✓ get transactions body is array
+    ✓ delete account status is 200
+    ✓ delete client status is 200
+
+    HTTP
+    http_req_duration..............: avg=231.56ms min=471.84µs med=120.95ms max=16.07s p(90)=363.71ms p(95)=711.46ms
+      { expected_response:true }...: avg=231.56ms min=471.84µs med=120.95ms max=16.07s p(90)=363.71ms p(95)=711.46ms
+    http_req_failed................: 0.00%  0 out of 181264
+    http_reqs......................: 181264 301.242806/s
+
+    EXECUTION
+    iteration_duration.............: avg=3.31s    min=1.04s    med=2.56s    max=29.82s p(90)=3.79s    p(95)=9.44s   
+    iterations.....................: 18126  30.123616/s
+    vus............................: 97     min=97          max=100
+    vus_max........................: 100    min=100         max=100
+
+    NETWORK
+    data_received..................: 36 MB  60 kB/s
+    data_sent......................: 25 MB  41 kB/s
+
+
+
+
+running (10m01.7s), 000/100 VUs, 18126 complete and 0 interrupted iterations
+default ✓ [======================================] 100 VUs  10m0s
