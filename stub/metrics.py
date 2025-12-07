@@ -1,8 +1,7 @@
-# metrics.py (ou dentro do main)
+# metrics.py 
 
 from prometheus_client import Counter, Histogram, start_http_server
 
-# Exemplo de métricas
 HTTP_REQUESTS_TOTAL = Counter(
     "http_requests_total",
     "Total de requisições HTTP recebidas pelo stub",
@@ -17,6 +16,5 @@ HTTP_REQUEST_DURATION_SECONDS = Histogram(
 )
 
 def start_metrics_server(port: int = 8001):
-    # Isso sobe um HTTP server em /metrics
     start_http_server(port)
     print(f"Prometheus metrics server rodando em :{port}/metrics")

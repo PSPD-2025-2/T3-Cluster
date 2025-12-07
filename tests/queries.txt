@@ -8,7 +8,10 @@ sum(
 
 -- TP endpoint
 sum by (endpoint)(
-  rate(http_requests_total{namespace="t3", service="stub-service"}[15m])
+  rate(http_requests_total{
+    namespace="t3", 
+    service="stub-service"
+    }[15m])
 )
 
 -- Latencia
